@@ -15,7 +15,7 @@ import Card from '../components/card';
 import { TabViewAnimated, TabViewPagerPan } from 'react-native-tab-view';
 import colors from '../helpers/colors';
 import {cardSize} from '../helpers/screen';
-import {differenceBetween} from '../helpers/helpers';
+import {includes} from '../helpers/helpers';
 const {width, height} = Dimensions.get('window');
 const size = cardSize(height);
 
@@ -45,15 +45,24 @@ class Landing extends Component {
     }
 
     componentDidMount() {
+        // AsyncStorage.clear();
         this.props.loadData()
             .then((data) => {
-                console.log('promise', data);
+                // console.log('promise', data);
                 this.setState({
                     loading: false,
                     routes: data.featured.map(item => ({ key: item.repo, data: item }))
                 })
             });
-        // this.load();
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (this.props.data != nextProps.data) {
+            this.setState({
+                loading: false,
+                routes: nextProps.data.featured.map(item => ({ key: item.repo, data: item }))
+            })
+        }
     }
     
     deleted(object) {
@@ -118,10 +127,15 @@ class Landing extends Component {
 
     _renderScene(props) {
 
+        // console.log('liked:', this.props.data.liked);
+        // console.log('data:', props.route.data);
+
         return (
             <Animated.View style={[ styles.page, this._buildCoverFlowStyle(props) ]}>
                 <View style={styles.album}>
-                    <Card key={props.route.key} deleted={this.deleted} data={props.route.data}/>
+                    <Card key={props.route.key}
+                          liked={includes(this.props.data.liked, props.route.data)}
+                          deleted={this.deleted} info={props.route.data}/>
                 </View>
             </Animated.View>
         );
@@ -132,6 +146,7 @@ class Landing extends Component {
     };
 
     render() {
+
         const {loading, routes} = this.state;
         if(loading) {
             return <View style={[styles.container, {justifyContent: 'center', alignItems: 'center'}]}>

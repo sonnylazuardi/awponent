@@ -43,6 +43,21 @@ class Liked extends Component {
         this._renderScene = this._renderScene.bind(this);
     }
 
+    componentWillMount() {
+        // AsyncStorage.clear();
+    }
+
+    componentWillReceiveProps(nextProps) {
+        // console.log('props received!', nextProps);
+        if (this.props.data != nextProps.data) {
+            this.setState({
+                loading: false,
+                routes: nextProps.data.liked.map(item => ({ key: item.repo, data: item }))
+            })
+        }
+    }
+
+
     deleted(object) {
         console.log('deleting!');
         // let difference = differenceBetween(this.state.data, [object]);
@@ -106,7 +121,7 @@ class Liked extends Component {
         return (
             <Animated.View style={[ styles.page, this._buildCoverFlowStyle(props) ]}>
                 <View style={styles.album}>
-                    <Card key={props.route.key} deleted={this.deleted} data={props.route.data} liked={true}/>
+                    <Card key={props.route.key} deleted={this.deleted} info={props.route.data} liked={true}/>
                 </View>
             </Animated.View>
         );

@@ -20,8 +20,10 @@ const size = cardSize(height);
 import {differenceBetween} from '../helpers/helpers';
 import { Ionicons } from '@exponent/vector-icons';
 import colors from '../helpers/colors';
+import {connect} from 'react-redux';
+import {unlike, like} from '../actions/data_action';
 
-export default class Card extends Component {
+class Card extends Component {
     constructor(props) {
         super(props);
         this.state= {
@@ -61,57 +63,25 @@ export default class Card extends Component {
     }
 
     async liked() {
-        this.animate();
+        // this.animate();
         const {liked} = this.state;
         if(!liked) {
-            try {
-                let value = await AsyncStorage.getItem('liked');
-                if (value !== null){
-                    console.log('We have data!! pushing');
-                    console.log(value);
-                    let liked = JSON.parse(value);
-                    liked.push(this.props.data);
-                    console.log('pushed data', liked);
-                    AsyncStorage.setItem('liked', JSON.stringify(liked));
-                } else {
-                    let liked = [];
-                    liked.push(this.props.data);
-                    console.log(liked);
-                    AsyncStorage.setItem('liked', JSON.stringify(liked));
-                }
-            } catch (error) {
-                // Error retrieving data
-                console.log(error);
-            } finally {
-                this.setState({liked: true});
-            }
+            console.log('liking', this.props.info);
+            this.props.like(this.props.info);
+            this.setState({liked: true});
             return
         }
         
         //delete from liked
-        console.log('deleting');
-
-        try {
-            let value = await AsyncStorage.getItem('liked');
-            if (value !== null){
-                console.log('We have data!! delete');
-                console.log(value);
-                let liked = JSON.parse(value);
-                let deleted = differenceBetween(liked, [this.props.data]);
-                console.log('deleted data', deleted);
-                AsyncStorage.setItem('liked', JSON.stringify(deleted));
-            }
-        } catch (error) {
-            console.log(error);
-        }
-        
-
+        console.log('unliking');
+        this.props.unlike(this.props.info);
+        this.setState({liked: false})
 
     }
     
     deleted(object) {
-        console.log('deleting:', this.props.data)
-        this.props.deleted(object);
+        // console.log('deleting:', this.props.data)
+        // this.props.deleted(object);
     }
 
     animate() {
@@ -143,7 +113,7 @@ export default class Card extends Component {
     }
 
     openGitHub() {
-        let url = this.props.data.repo;
+        let url = this.props.info.repo;
         Linking.canOpenURL(url).then(supported => {
             if (!supported) {
                 console.log('Can\'t handle url: ' + url);
@@ -154,7 +124,7 @@ export default class Card extends Component {
     }
 
     openExponent() {
-        let url = this.props.data.exponentUrl;
+        let url = this.props.info.exponentUrl;
         Linking.canOpenURL(url).then(supported => {
             if (!supported) {
                 console.log('Can\'t handle url: ' + url);
@@ -165,9 +135,9 @@ export default class Card extends Component {
     }
 
     render() {
-        const {name, author, displayPicture, description} = this.props.data;
-        const {opacity, XY, deleted} = this.state;
-
+        
+        const {name, author, displayPicture, description} = this.props.info;
+        const {opacity, XY, } = this.state;
         return (
             <Animated.View style={{opacity, position: 'absolute', transform:[{translateX: XY.x}, {translateY: XY.y}]}}>
                 <View style={{flex: 1, width: size.width, height: size.height, borderWidth: 1}}>
@@ -204,6 +174,8 @@ export default class Card extends Component {
         
     }
 }
+
+export default connect(state => ({data: state.data}), {like, unlike})(Card);
 
 const styles = StyleSheet.create({
     img: {

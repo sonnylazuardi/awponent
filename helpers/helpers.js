@@ -33,3 +33,14 @@ function cloneObject(obj) {
 
     return temp;
 }
+
+export function includes(array, object) {
+    var found = false;
+    for(var i = 0; i < array.length; i++) {
+        if (array[i].repo == object.repo) {
+            found = true;
+            break;
+        }
+    }
+    return found;
+}
