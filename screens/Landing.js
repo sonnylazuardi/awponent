@@ -46,14 +46,17 @@ class Landing extends Component {
 
     componentDidMount() {
         // AsyncStorage.clear();
-        this.props.loadData()
-            .then((data) => {
-                // console.log('promise', data);
-                this.setState({
-                    loading: false,
-                    routes: data.featured.map(item => ({ key: item.repo, data: item }))
-                })
-            });
+
+        if(this.props.loadData){
+            this.props.loadData()
+                .then((data) => {
+                    // console.log('promise', data);
+                    this.setState({
+                        loading: false,
+                        routes: data.featured.map(item => ({ key: item.repo, data: item }))
+                    })
+                });
+        }
     }
 
     componentWillReceiveProps(nextProps) {
@@ -62,6 +65,7 @@ class Landing extends Component {
                 loading: false,
                 routes: nextProps.data.featured.map(item => ({ key: item.repo, data: item }))
             })
+            this.props.data = nextProps.data;
         }
     }
     

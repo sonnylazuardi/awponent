@@ -30,7 +30,8 @@ class Card extends Component {
             liked: props.liked,
             deleted: false,
             opacity: new Animated.Value(1),
-            XY: new Animated.ValueXY(0)
+            XY: new Animated.ValueXY(0),
+            loading: true,
         }
 
         this.liked = this.liked.bind(this);
@@ -134,6 +135,32 @@ class Card extends Component {
         }).catch(err => console.error('An error occurred', err));
     }
 
+    loadImage(name, displayPicture, description) {
+        return (
+            <Image source={displayPicture} style={styles.img}>
+                <View style={styles.blur}>
+                    <Text style={{fontWeight: '800', fontSize: 24, backgroundColor: 'transparent', color: 'white'}}>{name}</Text>
+                    <Text style={{color: 'white', fontSize: 12, textAlign: 'center'}}>{description}</Text>
+
+                    <View style={{flexDirection: 'row', backgroundColor: 'transparent', height: 50}}>
+                        <TouchableOpacity
+                            onPress={this.openGitHub}
+                            style={{flex: 1, borderRadius: 5, backgroundColor: 'white', margin: 8,
+                                    justifyContent: 'center', alignItems: 'center'}}>
+                            <Ionicons name='logo-github' size={24}/>
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                            onPress={this.openExponent}
+                            style={{flex: 1, borderRadius: 5, backgroundColor: 'white', margin: 8,
+                                    justifyContent: 'center', alignItems: 'center'}}>
+                            <Image source={require('../assets/images/exponent-icon@3x.png')} style={{width: 24, height: 24, resizeMode: 'contain'}}/>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+            </Image>
+        )
+    }
+
     render() {
         
         const {name, author, displayPicture, description} = this.props.info;
@@ -141,28 +168,7 @@ class Card extends Component {
         return (
             <Animated.View style={{opacity, position: 'absolute', transform:[{translateX: XY.x}, {translateY: XY.y}]}}>
                 <View style={{flex: 1, width: size.width, height: size.height, borderWidth: 1}}>
-                    <Image source={displayPicture} style={styles.img}>
-                        <View style={styles.blur}>
-                            <Text style={{fontWeight: '800', fontSize: 24, backgroundColor: 'transparent', color: 'white'}}>{name}</Text>
-                            <Text style={{color: 'white', fontSize: 12, textAlign: 'center'}}>{description}</Text>
-
-                            <View style={{flexDirection: 'row', backgroundColor: 'transparent', height: 50}}>
-                                <TouchableOpacity
-                                    onPress={this.openGitHub}
-                                    style={{flex: 1, borderRadius: 5, backgroundColor: 'white', margin: 8,
-                                    justifyContent: 'center', alignItems: 'center'}}>
-                                    <Ionicons name='logo-github' size={24}/>
-                                </TouchableOpacity>
-                                <TouchableOpacity
-                                    onPress={this.openExponent}
-                                    style={{flex: 1, borderRadius: 5, backgroundColor: 'white', margin: 8,
-                                    justifyContent: 'center', alignItems: 'center'}}>
-                                    <Image source={require('../assets/images/exponent-icon@3x.png')} style={{width: 24, height: 24, resizeMode: 'contain'}}/>
-                                </TouchableOpacity>
-                            </View>
-                        </View>
-                    </Image>
-
+                    {this.loadImage(name, displayPicture, description)}
                 </View>
 
                 <View style={{flexDirection: 'row', justifyContent: 'space-between', paddingTop: 10}}>
