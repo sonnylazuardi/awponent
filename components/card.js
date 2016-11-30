@@ -137,7 +137,7 @@ class Card extends Component {
 
     loadImage(name, displayPicture, description) {
         return (
-            <Image source={displayPicture} style={styles.img}>
+            <Image source={{uri: displayPicture}} style={styles.img}>
                 <View style={styles.blur}>
                     <Text style={{fontWeight: '800', fontSize: 24, backgroundColor: 'transparent', color: 'white'}}>{name}</Text>
                     <Text style={{color: 'white', fontSize: 12, textAlign: 'center'}}>{description}</Text>

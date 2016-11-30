@@ -31,7 +31,7 @@ export default function data_reducer(state = initial_state, action = {}) {
         case UNLIKE:
             return {
                 ...state,
-                liked: action.payload
+                ...action.payload
             }
         default:
             return state

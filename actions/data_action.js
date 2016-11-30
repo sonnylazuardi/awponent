@@ -7,8 +7,7 @@ AsyncStorage
 
 import {differenceBetween} from '../helpers/helpers';
 
-
-import data from '../components.js';
+import data from '../components.json';
 
 export const INIT_DATA = 'INIT_DATA';
 export const LOADING = 'LOADING';
@@ -66,14 +65,12 @@ async function loadUnlike(project) {
         if (value !== null){
             console.log(value);
             let liked = JSON.parse(value);
-            let index = liked.indexOf(project);
-            liked.splice(index, 1);
-            console.log('new saved',liked);
-            AsyncStorage.setItem('liked', JSON.stringify(liked));
-            return liked;
+            let difference = differenceBetween(liked, [project]);
+            AsyncStorage.setItem('liked', JSON.stringify(difference));
+            return {liked: difference, featured: data};
         } else {
             let liked = [];
-            return liked;
+            return {liked, featured: data};
         }
     } catch (error) {
         // Error retrieving data
