@@ -19,7 +19,7 @@ export default [
             "username": "sonnylazuardi",
             "picture": "https://avatars2.githubusercontent.com/u/856609?v=3&s=460"
         },
-        "displayPicture": {uri: "https://camo.githubusercontent.com/20e03add9c2f8975f7cf5fc87dc585f3e04095ea/68747470733a2f2f63646e2e7261776769742e636f6d2f736f6e6e796c617a75617264692f72656163742d6e61746976652d6372656469742d636172642f6d61737465722f64656d6f2e676966"},
+        "displayPicture": require('./assets/images/card.gif'),
         "description": "💳 React native credit card display component",
         "exponentUrl": "exp://exp.host/@sonnylazuardi/react-native-credit-card-demos"
     },
