@@ -8,7 +8,7 @@ AsyncStorage
 import {differenceBetween} from '../helpers/helpers';
 
 
-let data = require('../components.json');
+import data from '../components.js';
 
 export const INIT_DATA = 'INIT_DATA';
 export const LOADING = 'LOADING';

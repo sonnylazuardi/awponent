@@ -141,7 +141,7 @@ class Card extends Component {
         return (
             <Animated.View style={{opacity, position: 'absolute', transform:[{translateX: XY.x}, {translateY: XY.y}]}}>
                 <View style={{flex: 1, width: size.width, height: size.height, borderWidth: 1}}>
-                    <Image source={{uri: displayPicture}} style={styles.img}>
+                    <Image source={displayPicture} style={styles.img}>
                         <View style={styles.blur}>
                             <Text style={{fontWeight: '800', fontSize: 24, backgroundColor: 'transparent', color: 'white'}}>{name}</Text>
                             <Text style={{color: 'white', fontSize: 12, textAlign: 'center'}}>{description}</Text>

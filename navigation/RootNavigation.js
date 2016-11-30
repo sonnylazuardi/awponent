@@ -63,7 +63,7 @@ export default class RootNavigation extends React.Component {
       />
     );
   }
-  
+
 }
 
 const styles = StyleSheet.create({
