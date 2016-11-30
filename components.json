@@ -1,4 +1,4 @@
-export default [
+[
     {
         "name": "Card Modal",
         "repo": "https://github.com/ggomaeng/react-native-card-modal",
@@ -7,7 +7,7 @@ export default [
             "username": "ggomaeng",
             "picture": "https://avatars3.githubusercontent.com/u/18402191?v=3&s=460"
         },
-        "displayPicture": require('./assets/images/cardmodal.gif'),
+        "displayPicture": "https://raw.githubusercontent.com/sonnylazuardi/awesomeponent/master/assets/images/cardmodal.gif",
         "description": "A pure javascript card modal for React Native framework.",
         "exponentUrl": "exp://exp.host/@sungwoopark95/react-native-card-modal"
     },
@@ -19,7 +19,7 @@ export default [
             "username": "sonnylazuardi",
             "picture": "https://avatars2.githubusercontent.com/u/856609?v=3&s=460"
         },
-        "displayPicture": require('./assets/images/card.gif'),
+        "displayPicture": "https://raw.githubusercontent.com/sonnylazuardi/awesomeponent/master/assets/images/card.gif",
         "description": "💳 React native credit card display component",
         "exponentUrl": "exp://exp.host/@sonnylazuardi/react-native-credit-card-demos"
     },
@@ -31,7 +31,7 @@ export default [
             "username": "ggomaeng",
             "picture": "https://avatars3.githubusercontent.com/u/18402191?v=3&s=460"
         },
-        "displayPicture": require('./assets/images/digital_magazine.gif'),
+        "displayPicture": "https://raw.githubusercontent.com/sonnylazuardi/awesomeponent/master/assets/images/digital_magazine.gif",
         "description": "A pure javascript magazine listview for React Native framework.",
         "exponentUrl": "exp://exp.host/@sungwoopark95/react-native-digital-magazine"
     },
@@ -43,7 +43,7 @@ export default [
             "username": "ggomaeng",
             "picture": "https://avatars3.githubusercontent.com/u/18402191?v=3&s=460"
         },
-        "displayPicture": require('./assets/images/tetris.gif'),
+        "displayPicture": "https://raw.githubusercontent.com/sonnylazuardi/awesomeponent/master/assets/images/tetris.gif",
         "description": "A pure javascript tetris game for React Native framework.",
         "exponentUrl": "exp://exp.host/@sungwoopark95/react-native-tetris"
     },
@@ -55,7 +55,7 @@ export default [
             "username": "ggomaeng",
             "picture": "https://avatars3.githubusercontent.com/u/18402191?v=3&s=460"
         },
-        "displayPicture": require('./assets/images/gmail.gif'),
+        "displayPicture": "https://raw.githubusercontent.com/sonnylazuardi/awesomeponent/master/assets/images/gmail.gif",
         "description": "A prototype of Gmail UI written in pure javascript for React Native framework.",
         "exponentUrl": "exp://exp.host/@sungwoopark95/react-native-gmail"
     },
@@ -67,7 +67,7 @@ export default [
             "username": "ggomaeng",
             "picture": "https://avatars3.githubusercontent.com/u/18402191?v=3&s=460"
         },
-        "displayPicture": require('./assets/images/image-card.gif'),
+        "displayPicture": "https://raw.githubusercontent.com/sonnylazuardi/awesomeponent/master/assets/images/image-card.gif",
         "description": "A pure javascript image card for React Native framework.",
         "exponentUrl": "exp://exp.host/@sungwoopark95/react-native-image-card"
     },
@@ -79,7 +79,7 @@ export default [
             "username": "ggomaeng",
             "picture": "https://avatars3.githubusercontent.com/u/18402191?v=3&s=460"
         },
-        "displayPicture": require('./assets/images/solitaire.gif'),
+        "displayPicture": "https://raw.githubusercontent.com/sonnylazuardi/awesomeponent/master/assets/images/solitaire.gif",
         "description": "A pure javascript solitaire UI for React Native framework.",
         "exponentUrl": "exp://exp.host/@sungwoopark95/react-native-solitaire"
     }

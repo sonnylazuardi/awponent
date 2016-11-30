@@ -48,8 +48,8 @@ class Liked extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        // console.log('props received!', nextProps);
         if (this.props.data != nextProps.data) {
+            console.log('props for liked received!', nextProps);
             this.setState({
                 loading: false,
                 routes: nextProps.data.liked.map(item => ({ key: item.repo, data: item }))

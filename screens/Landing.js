@@ -36,6 +36,7 @@ class Landing extends Component {
         this.state = {
             index: 0,
             routes: [],
+            liked: [],
             loading: true,
         }
         this.deleted = this.deleted.bind(this);
@@ -53,7 +54,8 @@ class Landing extends Component {
                     // console.log('promise', data);
                     this.setState({
                         loading: false,
-                        routes: data.featured.map(item => ({ key: item.repo, data: item }))
+                        routes: data.featured.map(item => ({ key: item.repo, data: item })),
+                        liked: data.liked
                     })
                 });
         }
@@ -61,11 +63,12 @@ class Landing extends Component {
 
     componentWillReceiveProps(nextProps) {
         if (this.props.data != nextProps.data) {
+            console.log('new props:', nextProps.data);
             this.setState({
                 loading: false,
-                routes: nextProps.data.featured.map(item => ({ key: item.repo, data: item }))
+                routes: nextProps.data.featured.map(item => ({ key: item.repo, data: item })),
+                liked: nextProps.data.liked
             })
-            this.props.data = nextProps.data;
         }
     }
     
@@ -131,14 +134,11 @@ class Landing extends Component {
 
     _renderScene(props) {
 
-        // console.log('liked:', this.props.data.liked);
-        // console.log('data:', props.route.data);
-
         return (
             <Animated.View style={[ styles.page, this._buildCoverFlowStyle(props) ]}>
                 <View style={styles.album}>
                     <Card key={props.route.key}
-                          liked={includes(this.props.data.liked, props.route.data)}
+                          liked={includes(this.state.liked, props.route.data)}
                           deleted={this.deleted} info={props.route.data}/>
                 </View>
             </Animated.View>
