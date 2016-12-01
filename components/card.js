@@ -41,6 +41,13 @@ class Card extends Component {
         this.deleted = this.deleted.bind(this);
     }
 
+    componentWillReceiveProps(nextProps) {
+        if(this.props.liked != nextProps.liked) {
+            console.log('card should be updated');
+            this.setState({liked: nextProps.liked});
+        }
+
+    }
 
     renderAvatar(author) {
         return (
@@ -63,7 +70,7 @@ class Card extends Component {
         )
     }
 
-    async liked() {
+    liked() {
         // this.animate();
         const {liked} = this.state;
         if(!liked) {
@@ -75,8 +82,9 @@ class Card extends Component {
         
         //delete from liked
         console.log('unliking');
+        this.setState({liked: false});
         this.props.unlike(this.props.info);
-        this.setState({liked: false})
+
 
     }
     
