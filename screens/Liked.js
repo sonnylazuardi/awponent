@@ -39,7 +39,6 @@ class Liked extends Component {
             routes: props.data.liked.map(item => ({ key: item.repo, data: item })),
             loading: false
         }
-        this.deleted = this.deleted.bind(this);
         this._renderScene = this._renderScene.bind(this);
     }
 
@@ -50,18 +49,15 @@ class Liked extends Component {
     componentWillReceiveProps(nextProps) {
         if (this.props.data != nextProps.data) {
             console.log('props for liked received!', nextProps);
+            if(nextProps.data.liked.length == 1) {
+                this.setState({index: 0})
+            }
             this.setState({
                 loading: false,
                 routes: nextProps.data.liked.map(item => ({ key: item.repo, data: item }))
             })
+
         }
-    }
-
-
-    deleted(object) {
-        console.log('deleting!');
-        // let difference = differenceBetween(this.state.data, [object]);
-        // this.setState({data: difference, routes: difference.map(item => ({ key: item.repo, data: item }))});
     }
 
 

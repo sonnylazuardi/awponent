@@ -36,7 +36,7 @@ export default class ButtonBar extends Component {
     }
 
     animate(index) {
-        let timing = Animated.timing;
+        let timing = Animated.spring;
         const {fontSize} = this.state;
         fontSize.map((item, i) => {
             if(i == index) {

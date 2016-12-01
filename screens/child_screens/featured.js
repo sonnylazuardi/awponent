@@ -28,55 +28,27 @@ const initialLayout = {
     width: width
 };
 
-class Featured extends Component {
+export default class Featured extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
             index: 0,
-            routes: [],
-            liked: [],
-            loading: true,
+            routes: props.routes,
+            liked: props.liked,
+            loading: props.loading,
         }
-        this.deleted = this.deleted.bind(this);
         this._renderScene = this._renderScene.bind(this);
         this._buildCoverFlowStyle = this._buildCoverFlowStyle.bind(this);
         this._handleChangeTab = this._handleChangeTab.bind(this);
     }
 
-    componentDidMount() {
-        // AsyncStorage.clear();
-
-        if(this.props.loadData){
-            this.props.loadData()
-                .then((data) => {
-                    // console.log('promise', data);
-                    this.setState({
-                        loading: false,
-                        routes: data.featured.map(item => ({ key: item.repo, data: item })),
-                        liked: data.liked
-                    })
-                });
-        }
-    }
 
     componentWillReceiveProps(nextProps) {
-        if (this.props.data != nextProps.data) {
-            console.log('new props:', nextProps.data);
-            this.setState({
-                loading: false,
-                routes: nextProps.data.featured.map(item => ({ key: item.repo, data: item })),
-                liked: nextProps.data.liked
-            })
+        if (this.props.routes != nextProps.routes) {
+            console.log('new routes:', nextProps.routes);
+            this.setState({routes: nextProps.routes, liked: nextProps.liked});
         }
-    }
-    
-    deleted(object) {
-        console.log('deleting!');
-        // let difference = differenceBetween(data, [object]);
-        // data = difference;
-        // this.setState({routes: difference.map(item => ({ key: item.repo, data: item }))});
-        
     }
 
     _buildCoverFlowStyle ({ layout, position, route, navigationState }) {
@@ -151,17 +123,17 @@ class Featured extends Component {
     render() {
 
         const {loading, routes} = this.state;
-        if(loading) {
-            return <View style={[styles.container, {justifyContent: 'center', alignItems: 'center'}]}>
-                <Text style={{fontSize: 24, color: colors.text, fontWeight: '300'}}>Loading...</Text>
-            </View>
-        }
-
-        if(routes.length == 0) {
-            return <View style={[styles.container, {justifyContent: 'center', alignItems: 'center'}]}>
-                <Text style={{fontSize: 24, color: colors.text, fontWeight: '300'}}>No projects to display</Text>
-            </View>
-        }
+        // if(loading) {
+        //     return <View style={[styles.container, {justifyContent: 'center', alignItems: 'center'}]}>
+        //         <Text style={{fontSize: 24, color: colors.text, fontWeight: '300'}}>Loading...</Text>
+        //     </View>
+        // }
+        //
+        // if(routes.length == 0) {
+        //     return <View style={[styles.container, {justifyContent: 'center', alignItems: 'center'}]}>
+        //         <Text style={{fontSize: 24, color: colors.text, fontWeight: '300'}}>No projects to display</Text>
+        //     </View>
+        // }
         return (
             <View style={styles.container}>
                 <TabViewAnimated
@@ -177,7 +149,6 @@ class Featured extends Component {
     }
 }
 
-export default connect(state => ({data: state.data}), {loadData})(Featured);
 
 
 const styles = StyleSheet.create({
