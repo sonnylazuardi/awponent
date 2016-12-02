@@ -1,67 +1,57 @@
-/**
- * Created by ggoma on 2016. 11. 29..
- */
 /* @flow */
 /* eslint-disable import/no-commonjs */
 
 import React, { Component } from 'react';
 import {
     Animated,
-    AsyncStorage,
     View,
     Image,
     Text,
     Dimensions,
     StyleSheet
 } from 'react-native';
-import Card from '../components/card';
+import Card from '../../components/card';
 import { TabViewAnimated, TabViewPagerPan } from 'react-native-tab-view';
-import colors from '../helpers/colors';
-import {cardSize} from '../helpers/screen';
-import {differenceBetween} from '../helpers/helpers';
+import colors from '../../helpers/colors';
+import {cardSize} from '../../helpers/screen';
+import {includes} from '../../helpers/helpers';
 const {width, height} = Dimensions.get('window');
 const size = cardSize(height);
 
+
+import {loadData} from '../../actions/data_action';
 import { connect } from 'react-redux';
-// const data = require('../components.json');
+
 
 const initialLayout = {
     height: 0,
     width: width
 };
 
-class Liked extends Component {
+export default class Featured extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
             index: 0,
-            routes: props.data.liked.map(item => ({ key: item.repo, data: item })),
-            loading: false
+            routes: props.routes,
+            liked: props.liked,
+            loading: props.loading,
         }
         this._renderScene = this._renderScene.bind(this);
+        this._buildCoverFlowStyle = this._buildCoverFlowStyle.bind(this);
+        this._handleChangeTab = this._handleChangeTab.bind(this);
     }
 
-    componentWillMount() {
-        // AsyncStorage.clear();
-    }
 
     componentWillReceiveProps(nextProps) {
-        if (this.props.data != nextProps.data) {
-            console.log('props for liked received!', nextProps);
-            if(nextProps.data.liked.length == 1) {
-                this.setState({index: 0})
-            }
-            this.setState({
-                loading: false,
-                routes: nextProps.data.liked.map(item => ({ key: item.repo, data: item }))
-            })
-
+        if (this.props.routes != nextProps.routes) {
+            console.log('new routes:', nextProps.routes);
+            this.setState({routes: nextProps.routes, liked: nextProps.liked});
         }
     }
 
-
-    _buildCoverFlowStyle = ({ layout, position, route, navigationState }) => {
+    _buildCoverFlowStyle ({ layout, position, route, navigationState }) {
         const { width } = layout;
         const { routes } = navigationState;
         const currentIndex = routes.indexOf(route);
@@ -107,17 +97,20 @@ class Liked extends Component {
         };
     };
 
-    _handleChangeTab = (index) => {
+    _handleChangeTab(index) {
         this.setState({
             index,
         });
     };
 
     _renderScene(props) {
+
         return (
             <Animated.View style={[ styles.page, this._buildCoverFlowStyle(props) ]}>
                 <View style={styles.album}>
-                    <Card key={props.route.key} deleted={this.deleted} info={props.route.data} liked={true}/>
+                    <Card key={props.route.key}
+                          liked={includes(this.state.liked, props.route.data)}
+                          deleted={this.deleted} info={props.route.data}/>
                 </View>
             </Animated.View>
         );
@@ -128,24 +121,21 @@ class Liked extends Component {
     };
 
     render() {
+
         const {loading, routes} = this.state;
-        if(loading) {
-            return <View style={[styles.container, {justifyContent: 'center', alignItems: 'center'}]}>
-                <Text style={{fontSize: 24, color: colors.text, fontWeight: '300'}}>Loading...</Text>
-            </View>
-        }
-
-        if(routes.length == 0) {
-            return <View style={[styles.container, {justifyContent: 'center', alignItems: 'center'}]}>
-                <Text style={{fontSize: 24, color: colors.text, fontWeight: '300'}}>No liked projects yet!</Text>
-            </View>
-        }
-
+        // if(loading) {
+        //     return <View style={[styles.container, {justifyContent: 'center', alignItems: 'center'}]}>
+        //         <Text style={{fontSize: 24, color: colors.text, fontWeight: '300'}}>Loading...</Text>
+        //     </View>
+        // }
+        //
+        // if(routes.length == 0) {
+        //     return <View style={[styles.container, {justifyContent: 'center', alignItems: 'center'}]}>
+        //         <Text style={{fontSize: 24, color: colors.text, fontWeight: '300'}}>No projects to display</Text>
+        //     </View>
+        // }
         return (
             <View style={styles.container}>
-                <View style={{height: 100, justifyContent: 'flex-end', alignItems: 'center'}}>
-                    <Text style={{fontSize: 32, fontWeight: '200'}}>Liked</Text>
-                </View>
                 <TabViewAnimated
                     style={[{flex: 1}, this.props.style]}
                     navigationState={this.state}
@@ -159,12 +149,11 @@ class Liked extends Component {
     }
 }
 
-export default connect(state => ({data: state.data}), null)(Liked);
+
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: colors.bg,
     },
     page: {
         flex: 1,
