@@ -105,7 +105,9 @@ class Featured extends Component {
     };
 
     _renderScene(props) {
-
+        if (Math.abs(this.state.index - this.state.routes.indexOf(props.route)) > 2) {
+            return null;
+        }
         return (
             <Animated.View style={[ styles.page, this._buildCoverFlowStyle(props) ]}>
                 <View style={styles.album}>
