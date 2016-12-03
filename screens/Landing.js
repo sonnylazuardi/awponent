@@ -26,8 +26,6 @@ class Landing extends Component {
             loading: true
         }
 
-        console.log(this.state.routes);
-
         this.changeIndex = this.changeIndex.bind(this)
     }
 
