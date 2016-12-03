@@ -17,15 +17,15 @@ for the featured or new components. We can also like a component so that we can 
 
 Name | Exponent URL | Github URL | Demo
 --- | --- | --- | ---
-Card Modal | exp://exp.host/@sungwoopark95/react-native-card-modal | https://github.com/ggomaeng/react-native-card-modal | https://rawgit.com/sonnylazuardi/awponent/master/assets/images/cardmodal.gif
-Credit Card | exp://exp.host/@sonnylazuardi/react-native-credit-card-demos | https://github.com/sonnylazuardi/react-native-credit-card | https://rawgit.com/sonnylazuardi/awponent/master/assets/images/card.gif
-Magazine ListView | exp://exp.host/@sungwoopark95/react-native-digital-magazine | https://github.com/ggomaeng/react-native-magazine-listview | https://rawgit.com/sonnylazuardi/awponent/master/assets/images/digital_magazine.gif
-Tetris | exp://exp.host/@sungwoopark95/react-native-tetris | https://github.com/ggomaeng/react-native-tetris | https://rawgit.com/sonnylazuardi/awponent/master/assets/images/tetris.gif
-Gmail | exp://exp.host/@sungwoopark95/react-native-gmail | https://github.com/ggomaeng/react-native-gmail | https://rawgit.com/sonnylazuardi/awponent/master/assets/images/gmail.gif
-Image Card | exp://exp.host/@sungwoopark95/react-native-image-card | https://github.com/ggomaeng/react-native-image-card | https://rawgit.com/sonnylazuardi/awponent/master/assets/images/image-card.gif
-Solitaire | exp://exp.host/@sungwoopark95/react-native-solitaire | https://github.com/ggomaeng/react-native-solitaire | https://rawgit.com/sonnylazuardi/awponent/master/assets/images/solitaire.gif
-Whats App | - |https://github.com/VctrySam/whatsapp | https://rawgit.com/sonnylazuardi/awponent/master/assets/images/whatsapp.jpg
-Tinder | - | https://github.com/VctrySam/tinder | https://rawgit.com/sonnylazuardi/awponent/master/assets/images/tinder.jpg
+Card Modal | exp://exp.host/@sungwoopark95/react-native-card-modal | https://github.com/ggomaeng/react-native-card-modal | ![](https://rawgit.com/sonnylazuardi/awponent/master/assets/images/cardmodal.gif)
+Credit Card | exp://exp.host/@sonnylazuardi/react-native-credit-card-demos | https://github.com/sonnylazuardi/react-native-credit-card | ![](https://rawgit.com/sonnylazuardi/awponent/master/assets/images/card.gif)
+Magazine ListView | exp://exp.host/@sungwoopark95/react-native-digital-magazine | https://github.com/ggomaeng/react-native-magazine-listview | ![](https://rawgit.com/sonnylazuardi/awponent/master/assets/images/digital_magazine.gif)
+Tetris | exp://exp.host/@sungwoopark95/react-native-tetris | https://github.com/ggomaeng/react-native-tetris | ![](https://rawgit.com/sonnylazuardi/awponent/master/assets/images/tetris.gif)
+Gmail | exp://exp.host/@sungwoopark95/react-native-gmail | https://github.com/ggomaeng/react-native-gmail | ![](https://rawgit.com/sonnylazuardi/awponent/master/assets/images/gmail.gif)
+Image Card | exp://exp.host/@sungwoopark95/react-native-image-card | https://github.com/ggomaeng/react-native-image-card | ![](https://rawgit.com/sonnylazuardi/awponent/master/assets/images/image-card.gif)
+Solitaire | exp://exp.host/@sungwoopark95/react-native-solitaire | https://github.com/ggomaeng/react-native-solitaire | ![](https://rawgit.com/sonnylazuardi/awponent/master/assets/images/solitaire.gif)
+Whats App | - |https://github.com/VctrySam/whatsapp | ![](https://rawgit.com/sonnylazuardi/awponent/master/assets/images/whatsapp.jpg)
+Tinder | - | https://github.com/VctrySam/tinder | ![](https://rawgit.com/sonnylazuardi/awponent/master/assets/images/tinder.jpg)
 
 # Contributing
 
