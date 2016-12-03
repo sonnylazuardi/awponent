@@ -22,6 +22,12 @@ Please note the following:
 - `displayPicture` should be an image or gif under 200KB
 - `timestamp` is in unix format
 
+# Todo
+
+- [ ] add github stars counter on the card
+- [ ] add share button
+- [ ] add Push Notification for new components
+
 # Credits
 
 - [Sung Woo Park](https://github.com/ggomaeng)
