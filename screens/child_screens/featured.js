@@ -19,7 +19,7 @@ const {width, height} = Dimensions.get('window');
 const size = cardSize(height);
 
 
-import {loadData} from '../../actions/data_action';
+import {loadData, setCurrentFeaturedIndex} from '../../actions/data_action';
 import { connect } from 'react-redux';
 
 
@@ -28,12 +28,12 @@ const initialLayout = {
     width: width
 };
 
-export default class Featured extends Component {
+class Featured extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            index: 0,
+            index: props.data.currentFeaturedIndex,
             routes: props.routes,
             liked: props.liked,
             loading: props.loading,
@@ -48,6 +48,9 @@ export default class Featured extends Component {
         if (this.props.routes != nextProps.routes) {
             console.log('new routes:', nextProps.routes);
             this.setState({routes: nextProps.routes, liked: nextProps.liked});
+        }
+        if (this.props.data.currentFeaturedIndex != nextProps.data.currentFeaturedIndex) {
+            this.setState({index: nextProps.data.currentFeaturedIndex});
         }
     }
 
@@ -98,9 +101,7 @@ export default class Featured extends Component {
     };
 
     _handleChangeTab(index) {
-        this.setState({
-            index,
-        });
+        this.props.setCurrentFeaturedIndex(index);
     };
 
     _renderScene(props) {
@@ -149,7 +150,7 @@ export default class Featured extends Component {
     }
 }
 
-
+export default connect(state => ({data: state.data}), {setCurrentFeaturedIndex})(Featured);
 
 const styles = StyleSheet.create({
     container: {

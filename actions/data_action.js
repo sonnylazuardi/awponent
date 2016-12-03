@@ -13,6 +13,7 @@ export const INIT_DATA = 'INIT_DATA';
 export const LOADING = 'LOADING';
 export const SAVE_TO_LIKED = 'SAVE_TO_LIKED';
 export const UNLIKE = 'UNLIKE';
+export const SET_CURRENT_FEATURED_INDEX = 'SET_CURRENT_FEATURED_INDEX';
 
 export function initData(data) {
     console.log('initiating data');
@@ -147,5 +148,13 @@ export function unlike(project) {
 
         return promise;
 
+    }
+}
+
+export function setCurrentFeaturedIndex(data) {
+    console.log('initiating data');
+    return {
+        type: SET_CURRENT_FEATURED_INDEX,
+        payload: data
     }
 }
