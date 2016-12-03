@@ -71,24 +71,28 @@ class Card extends Component {
 
     openGitHub() {
         let url = this.props.info.repo;
-        Linking.canOpenURL(url).then(supported => {
-            if (!supported) {
-                console.log('Can\'t handle url: ' + url);
-            } else {
-                return Linking.openURL(url);
-            }
-        }).catch(err => console.error('An error occurred', err));
+        if (url) {
+            Linking.canOpenURL(url).then(supported => {
+                if (!supported) {
+                    console.log('Can\'t handle url: ' + url);
+                } else {
+                    return Linking.openURL(url);
+                }
+            }).catch(err => console.error('An error occurred', err));
+        }
     }
 
     openExponent() {
         let url = this.props.info.exponentUrl;
-        Linking.canOpenURL(url).then(supported => {
-            if (!supported) {
-                console.log('Can\'t handle url: ' + url);
-            } else {
-                return Linking.openURL(url);
-            }
-        }).catch(err => console.error('An error occurred', err));
+        if (url) {
+            Linking.canOpenURL(url).then(supported => {
+                if (!supported) {
+                    console.log('Can\'t handle url: ' + url);
+                } else {
+                    return Linking.openURL(url);
+                }
+            }).catch(err => console.error('An error occurred', err));
+        }
     }
 
     loadImage(name, displayPicture, description) {
