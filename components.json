@@ -8,7 +8,7 @@
             "picture": "https://avatars3.githubusercontent.com/u/18402191?v=3&s=100"
         },
         "tag": "featured",
-        "displayPicture": "https://raw.githubusercontent.com/sonnylazuardi/awesomeponent/master/assets/images/cardmodal.gif",
+        "displayPicture": "https://rawgit.com/sonnylazuardi/awponent/master/assets/images/cardmodal.gif",
         "description": "A pure javascript card modal for React Native framework.",
         "exponentUrl": "exp://exp.host/@sungwoopark95/react-native-card-modal"
     },
@@ -21,7 +21,7 @@
             "picture": "https://avatars2.githubusercontent.com/u/856609?v=3&s=100"
         },
         "tag": "featured",
-        "displayPicture": "https://raw.githubusercontent.com/sonnylazuardi/awesomeponent/master/assets/images/card.gif",
+        "displayPicture": "https://rawgit.com/sonnylazuardi/awponent/master/assets/images/card.gif",
         "description": "💳 React native credit card display component",
         "exponentUrl": "exp://exp.host/@sonnylazuardi/react-native-credit-card-demos"
     },
@@ -34,7 +34,7 @@
             "picture": "https://avatars3.githubusercontent.com/u/18402191?v=3&s=100"
         },
         "tag": "featured",
-        "displayPicture": "https://raw.githubusercontent.com/sonnylazuardi/awesomeponent/master/assets/images/digital_magazine.gif",
+        "displayPicture": "https://rawgit.com/sonnylazuardi/awponent/master/assets/images/digital_magazine.gif",
         "description": "A pure javascript magazine listview for React Native framework.",
         "exponentUrl": "exp://exp.host/@sungwoopark95/react-native-digital-magazine"
     },
@@ -46,7 +46,7 @@
             "username": "ggomaeng",
             "picture": "https://avatars3.githubusercontent.com/u/18402191?v=3&s=100"
         },
-        "displayPicture": "https://raw.githubusercontent.com/sonnylazuardi/awesomeponent/master/assets/images/tetris.gif",
+        "displayPicture": "https://rawgit.com/sonnylazuardi/awponent/master/assets/images/tetris.gif",
         "description": "A pure javascript tetris game for React Native framework.",
         "exponentUrl": "exp://exp.host/@sungwoopark95/react-native-tetris"
     },
@@ -58,7 +58,7 @@
             "username": "ggomaeng",
             "picture": "https://avatars3.githubusercontent.com/u/18402191?v=3&s=100"
         },
-        "displayPicture": "https://raw.githubusercontent.com/sonnylazuardi/awesomeponent/master/assets/images/gmail.gif",
+        "displayPicture": "https://rawgit.com/sonnylazuardi/awponent/master/assets/images/gmail.gif",
         "description": "A prototype of Gmail UI written in pure javascript for React Native framework.",
         "exponentUrl": "exp://exp.host/@sungwoopark95/react-native-gmail"
     },
@@ -70,7 +70,7 @@
             "username": "ggomaeng",
             "picture": "https://avatars3.githubusercontent.com/u/18402191?v=3&s=100"
         },
-        "displayPicture": "https://raw.githubusercontent.com/sonnylazuardi/awesomeponent/master/assets/images/image-card.gif",
+        "displayPicture": "https://rawgit.com/sonnylazuardi/awponent/master/assets/images/image-card.gif",
         "description": "A pure javascript image card for React Native framework.",
         "exponentUrl": "exp://exp.host/@sungwoopark95/react-native-image-card"
     },
@@ -82,7 +82,7 @@
             "username": "ggomaeng",
             "picture": "https://avatars3.githubusercontent.com/u/18402191?v=3&s=100"
         },
-        "displayPicture": "https://raw.githubusercontent.com/sonnylazuardi/awesomeponent/master/assets/images/solitaire.gif",
+        "displayPicture": "https://rawgit.com/sonnylazuardi/awponent/master/assets/images/solitaire.gif",
         "description": "A pure javascript solitaire UI for React Native framework.",
         "exponentUrl": "exp://exp.host/@sungwoopark95/react-native-solitaire"
     },
@@ -94,8 +94,21 @@
             "username": "VctrySam",
             "picture": "https://avatars0.githubusercontent.com/u/13421469?v=3&s=100"
         },
-        "displayPicture": "https://raw.githubusercontent.com/sonnylazuardi/awesomeponent/master/assets/images/whatsapp.jpg",
+        "displayPicture": "https://rawgit.com/sonnylazuardi/awponent/master/assets/images/whatsapp.jpg",
         "description": "WhatsApp in React Native",
         "exponentUrl": "exp://exp.host/@sonnylazuardi/whatsapp"
-    }
+    },
+    {
+        "name": "Tinder",
+        "repo": "https://github.com/VctrySam/tinder",
+        "author": {
+            "name": "Sam Okoro",
+            "username": "VctrySam",
+            "picture": "https://avatars0.githubusercontent.com/u/13421469?v=3&s=100"
+        },
+        "displayPicture": "https://rawgit.com/sonnylazuardi/awponent/master/assets/images/tinder.jpg",
+        "description": "Tinder in React Native",
+        "exponentUrl": "exp://exp.host/@sonnylazuardi/tinder"
+    },
+
 ]

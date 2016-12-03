@@ -101,7 +101,7 @@ async function loadLiked() {
 
 async function loadFeatured() {
     try {
-        let response = await fetch(`https://raw.githubusercontent.com/sonnylazuardi/awponent/master/components.json`, {
+        let response = await fetch(`https://rawgit.com/sonnylazuardi/awponent/master/components.json`, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
