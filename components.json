@@ -109,6 +109,5 @@
         "displayPicture": "https://rawgit.com/sonnylazuardi/awponent/master/assets/images/tinder.jpg",
         "description": "Tinder in React Native",
         "exponentUrl": "exp://exp.host/@sonnylazuardi/tinder"
-    },
-
+    }
 ]
