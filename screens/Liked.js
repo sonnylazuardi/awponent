@@ -23,6 +23,7 @@ const {width, height} = Dimensions.get('window');
 const size = cardSize(height);
 
 import { connect } from 'react-redux';
+import {setCurrentLikedIndex} from '../actions/data_action';
 // const data = require('../components.json');
 
 const initialLayout = {
@@ -35,7 +36,7 @@ class Liked extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            index: 0,
+            index: props.data.currentLikedIndex,
             routes: props.data.liked.map(item => ({ key: item.repo, data: item })),
             loading: false
         }
@@ -56,9 +57,9 @@ class Liked extends Component {
             }
             this.setState({
                 loading: false,
-                routes: nextProps.data.liked.map(item => ({ key: item.repo, data: item }))
+                routes: nextProps.data.liked.map(item => ({ key: item.repo, data: item })),
+                index: nextProps.data.currentLikedIndex
             })
-
         }
     }
 
@@ -110,9 +111,7 @@ class Liked extends Component {
     };
 
     _handleChangeTab = (index) => {
-        this.setState({
-            index,
-        });
+        this.props.setCurrentLikedIndex(index);
     };
 
     _renderScene(props) {
@@ -161,7 +160,7 @@ class Liked extends Component {
     }
 }
 
-export default connect(state => ({data: state.data}), null)(Liked);
+export default connect(state => ({data: state.data}), {setCurrentLikedIndex})(Liked);
 
 const styles = StyleSheet.create({
     container: {

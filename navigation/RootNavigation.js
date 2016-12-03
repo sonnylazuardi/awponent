@@ -2,6 +2,7 @@ import React from 'react';
 import {
   StyleSheet,
   View,
+  AsyncStorage,
 } from 'react-native';
 import {
   Notifications,

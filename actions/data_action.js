@@ -2,7 +2,7 @@
  * Created by ggoma on 2016. 11. 29..
  */
 import {
-AsyncStorage
+    AsyncStorage
 } from 'react-native';
 
 import {differenceBetween, featuredWithLiked} from '../helpers/helpers';
@@ -14,6 +14,8 @@ export const LOADING = 'LOADING';
 export const SAVE_TO_LIKED = 'SAVE_TO_LIKED';
 export const UNLIKE = 'UNLIKE';
 export const SET_CURRENT_FEATURED_INDEX = 'SET_CURRENT_FEATURED_INDEX';
+export const SET_CURRENT_LIKED_INDEX = 'SET_CURRENT_LIKED_INDEX';
+
 
 export function initData(data) {
     console.log('initiating data');
@@ -34,47 +36,6 @@ export function doUnlike(project) {
     return {
         type: UNLIKE,
         payload: project
-    }
-}
-
-async function save(project) {
-    try {
-        let value = await AsyncStorage.getItem('liked');
-        if (value !== null){
-            console.log(value);
-            let liked = JSON.parse(value);
-            liked.push(project);
-            console.log('new saved',liked);
-            AsyncStorage.setItem('liked', JSON.stringify(liked));
-            return liked;
-        } else {
-            let liked = [];
-            liked.push(project);
-            console.log('new saved',liked);
-            AsyncStorage.setItem('liked', JSON.stringify(liked));
-            return liked;
-        }
-    } catch (error) {
-        // Error retrieving data
-        console.log(error);
-    }
-}
-
-async function loadUnlike(project) {
-    try {
-        let value = await AsyncStorage.getItem('liked');
-        if (value !== null){
-            let liked = JSON.parse(value);
-            let difference = differenceBetween(liked, [project]);
-            AsyncStorage.setItem('liked', JSON.stringify(difference));
-            return {liked: difference, featured: data};
-        } else {
-            let liked = [];
-            return {liked, featured: data};
-        }
-    } catch (error) {
-        // Error retrieving data
-        console.log(error);
     }
 }
 
@@ -137,9 +98,8 @@ export function loadData() {
 export function like(project) {
     return function(dispatch, getState) {
         let state = getState();
-        console.log(state);
-        
         dispatch(saveToLiked(project));
+        // AsyncStorage.setItem('liked', JSON.stringify(state.liked));
         return Promise.resolve();
     }
 }
@@ -147,17 +107,21 @@ export function like(project) {
 export function unlike(project) {
     return function(dispatch, getState) {
         let state = getState();
-        console.log(state);
-        
         dispatch(doUnlike(project));
         return Promise.resolve();
     }
 }
 
 export function setCurrentFeaturedIndex(data) {
-    console.log('initiating data');
     return {
         type: SET_CURRENT_FEATURED_INDEX,
+        payload: data
+    }
+}
+
+export function setCurrentLikedIndex(data) {
+    return {
+        type: SET_CURRENT_LIKED_INDEX,
         payload: data
     }
 }
