@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import logo from './images/logo.png';
 import phone from './images/phone.png';
+import demo from './images/demo.gif';
 import exponentlogo from './images/exponentlogo.png';
 import downloadappstore from './images/downloadappstore.png';
 import downloadplaystore from './images/downloadplaystore.png';
@@ -19,15 +20,22 @@ class App extends Component {
             <div className="row" className="header-content">
               <div className="col-md-6">
                 <div className="phone-wrapper">
+                  <div className="demo-wrapper">
+                    <img src={demo} className="demo-image" />
+                  </div>
                   <img src={phone} className="phone-image" />
                 </div>
               </div>
               <div className="col-md-6">
+                <div className="star-button">
+                  <a className="github-button" href="https://github.com/sonnylazuardi/awponent" data-icon="octicon-star" data-style="mega" data-count-href="/sonnylazuardi/awponent/stargazers" data-count-api="/repos/sonnylazuardi/awponent#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star sonnylazuardi/awponent on GitHub">Star</a>
+                </div>
                 <h1>
                   <div>Curated list of</div>
                   <div className="small1">awesome react native</div>
                   <div className="small2">components on exponent</div>
                 </h1>
+                
                 <a href="#" className="btn btn-default">
                   <img src={exponentlogo} className="exponentlogo-image" /> Open in Exponent
                 </a>

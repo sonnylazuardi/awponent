@@ -27,6 +27,7 @@
   width: 220px;
   height: 450px;
   margin: 0 auto;
+  position: relative;
 }
 
 .exponentlogo-image {
@@ -35,7 +36,21 @@
   margin-right: 10px;
 }
 
-.logo-image, .phone-image, .downloadbutton {
+.demo-wrapper {
+  width: 180px;
+  height: 380px;
+  position: absolute;
+  top: 50px;
+  left: 20px;
+}
+
+.star-button {
+  clear: both;
+  margin-top: 50px;
+  margin-bottom: 10px;
+}
+
+.logo-image, .phone-image, .downloadbutton, .demo-image {
   width: 100%;
 }
 
