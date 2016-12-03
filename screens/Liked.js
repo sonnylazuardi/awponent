@@ -26,6 +26,8 @@ import { connect } from 'react-redux';
 import {setCurrentLikedIndex} from '../actions/data_action';
 // const data = require('../components.json');
 
+import LikedSelector from '../selectors/liked';
+
 const initialLayout = {
     height: 0,
     width: width
@@ -37,7 +39,7 @@ class Liked extends Component {
         super(props);
         this.state = {
             index: props.data.currentLikedIndex,
-            routes: props.data.liked.map(item => ({ key: item.repo, data: item })),
+            routes: props.liked.map(item => ({ key: item.repo, data: item })),
             loading: false
         }
         this._renderScene = this._renderScene.bind(this);
@@ -48,18 +50,22 @@ class Liked extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        if (this.props.data != nextProps.data) {
-            console.log('props for liked received!', nextProps);
-             if (this.state.index > nextProps.data.liked.length - 1) {
-                this.setState({index: nextProps.data.liked.length - 1})
-            } else if (nextProps.data.liked.length == 1) {
-                this.setState({index: 0})
-            }
+        if (this.props.data.currentLikedIndex != nextProps.data.currentLikedIndex) {
+            this.setState({index: nextProps.data.currentLikedIndex});
+        }
+        if (this.props.liked != nextProps.liked) {
             this.setState({
                 loading: false,
-                routes: nextProps.data.liked.map(item => ({ key: item.repo, data: item })),
-                index: nextProps.data.currentLikedIndex
+                routes: nextProps.liked.map(item => ({ key: item.repo, data: item }))
             })
+            if (this.state.index > nextProps.liked.length - 1) {
+                var nextIndex = nextProps.liked.length - 1;
+                if (nextIndex >= 0) {
+                    this.props.setCurrentLikedIndex(nextIndex);
+                } else {
+                    this.setState({index: 0});
+                }
+            }
         }
     }
 
@@ -160,7 +166,7 @@ class Liked extends Component {
     }
 }
 
-export default connect(state => ({data: state.data}), {setCurrentLikedIndex})(Liked);
+export default connect(state => ({data: state.data, liked: LikedSelector(state)}), {setCurrentLikedIndex})(Liked);
 
 const styles = StyleSheet.create({
     container: {

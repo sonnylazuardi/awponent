@@ -19,7 +19,8 @@
     "react-native": "git+https://github.com/exponentjs/react-native#sdk-11.0.3",
     "react-native-tab-view": "0.0.40",
     "react-redux": "^4.4.6",
-    "redux-thunk": "^2.1.0"
+    "redux-thunk": "^2.1.0",
+    "reselect": "^2.5.4"
   },
   "devDependencies": {
     "jest-exponent": "~0.1.3"

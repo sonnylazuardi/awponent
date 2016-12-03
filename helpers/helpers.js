@@ -56,8 +56,11 @@ export function includes(array, object) {
     return found;
 }
 
-export function uniqueLiked(liked) {
+export function unique(liked) {
     return liked.filter((item, index, items) => 
-        items.map(component => component.repo)
-            .indexOf(item.repo) === index);
+        items.indexOf(item) === index);
+}
+
+export function without(liked, repo) {
+    return liked.filter(item => item !== repo);
 }

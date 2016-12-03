@@ -22,6 +22,7 @@ const size = cardSize(height);
 import {loadData, setCurrentNewReleaseIndex} from '../../actions/data_action';
 import { connect } from 'react-redux';
 
+import NewReleaseSelector from '../../selectors/newRelease';
 
 const initialLayout = {
     height: 0,
@@ -34,7 +35,7 @@ class NewRelease extends Component {
         super(props);
         this.state = {
             index: props.data.currentNewReleaseIndex,
-            routes: props.routes,
+            routes: props.newRelease.map(item => ({ key: item.repo, data: item })),
             liked: props.liked,
             loading: props.loading,
         }
@@ -45,12 +46,13 @@ class NewRelease extends Component {
 
 
     componentWillReceiveProps(nextProps) {
-        if (this.props.routes != nextProps.routes) {
-            console.log('new routes:', nextProps.routes);
-            this.setState({routes: nextProps.routes, liked: nextProps.liked});
-        }
         if (this.props.data.currentNewReleaseIndex != nextProps.data.currentNewReleaseIndex) {
             this.setState({index: nextProps.data.currentNewReleaseIndex});
+        }
+        if (this.props.newRelease != nextProps.newRelease) {
+            this.setState({
+                routes: nextProps.newRelease.map(item => ({ key: item.repo, data: item }))
+            })
         }
     }
 
@@ -123,8 +125,12 @@ class NewRelease extends Component {
     };
 
     render() {
-
         const {loading, routes} = this.state;
+        if (routes.length == 0) {
+            return <View style={[styles.container, {justifyContent: 'center', alignItems: 'center'}]}>
+                <Text style={{fontSize: 24, color: colors.text, fontWeight: '300'}}>Loading...</Text>
+            </View>
+        }
         return (
             <View style={styles.container}>
                 <TabViewAnimated
@@ -140,7 +146,7 @@ class NewRelease extends Component {
     }
 }
 
-export default connect(state => ({data: state.data}), {setCurrentNewReleaseIndex})(NewRelease);
+export default connect(state => ({data: state.data, newRelease: NewReleaseSelector(state)}), {setCurrentNewReleaseIndex})(NewRelease);
 
 const styles = StyleSheet.create({
     container: {

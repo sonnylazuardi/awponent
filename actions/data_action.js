@@ -44,13 +44,13 @@ async function loadLiked() {
     try {
         let value = await AsyncStorage.getItem('liked');
         if (value !== null){
-            let liked = JSON.parse(value);
+            let likedIds = JSON.parse(value);
             return {
-                liked
+                likedIds
             };
         } else {
             return {
-                liked: []
+                likedIds: []
             };
         }
     } catch (error) {
@@ -58,7 +58,7 @@ async function loadLiked() {
     }
 }
 
-async function loadFeatured() {
+async function loadRepos() {
     try {
         let response = await fetch(`https://rawgit.com/sonnylazuardi/awponent/master/components.json`, {
             method: 'GET',
@@ -69,9 +69,9 @@ async function loadFeatured() {
             }
         });
         let responseJson = await response.json();
-        var featured = responseJson
+        var repos = responseJson || [];
         return {
-            featured,
+            repos,
             loading: false,
         };
     } catch (error) {
@@ -85,9 +85,8 @@ export function loadData() {
         let state = getState();
         console.log(state);
         let promise = loadLiked().then((liked) => {
-            return loadFeatured(liked.liked).then((featured) => {
-                //preprocess the featured data with the liked data use repo as the key
-                var data = {...liked, ...featured};
+            return loadRepos(liked.liked).then((repos) => {
+                var data = {...liked, ...repos};
                 dispatch(initData(data));
                 return Promise.resolve(data);
             })
@@ -98,16 +97,13 @@ export function loadData() {
 
 export function like(project) {
     return function(dispatch, getState) {
-        let state = getState();
         dispatch(saveToLiked(project));
-        // AsyncStorage.setItem('liked', JSON.stringify(state.liked));
         return Promise.resolve();
     }
 }
 
 export function unlike(project) {
     return function(dispatch, getState) {
-        let state = getState();
         dispatch(doUnlike(project));
         return Promise.resolve();
     }

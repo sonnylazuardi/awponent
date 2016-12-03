@@ -22,6 +22,7 @@ const size = cardSize(height);
 import {loadData, setCurrentFeaturedIndex} from '../../actions/data_action';
 import { connect } from 'react-redux';
 
+import FeaturedSelector from '../../selectors/featured';
 
 const initialLayout = {
     height: 0,
@@ -34,8 +35,7 @@ class Featured extends Component {
         super(props);
         this.state = {
             index: props.data.currentFeaturedIndex,
-            routes: props.routes,
-            liked: props.liked,
+            routes: props.featured.map(item => ({ key: item.repo, data: item })),
             loading: props.loading,
         }
         this._renderScene = this._renderScene.bind(this);
@@ -45,12 +45,13 @@ class Featured extends Component {
 
 
     componentWillReceiveProps(nextProps) {
-        if (this.props.routes != nextProps.routes) {
-            console.log('new routes:', nextProps.routes);
-            this.setState({routes: nextProps.routes, liked: nextProps.liked});
-        }
         if (this.props.data.currentFeaturedIndex != nextProps.data.currentFeaturedIndex) {
             this.setState({index: nextProps.data.currentFeaturedIndex});
+        }
+        if (this.props.featured != nextProps.featured) {
+            this.setState({
+                routes: nextProps.featured.map(item => ({ key: item.repo, data: item }))
+            })
         }
     }
 
@@ -123,8 +124,12 @@ class Featured extends Component {
     };
 
     render() {
-
         const {loading, routes} = this.state;
+        if (routes.length == 0) {
+            return <View style={[styles.container, {justifyContent: 'center', alignItems: 'center'}]}>
+                <Text style={{fontSize: 24, color: colors.text, fontWeight: '300'}}>Loading...</Text>
+            </View>
+        }
         return (
             <View style={styles.container}>
                 <TabViewAnimated
@@ -140,7 +145,7 @@ class Featured extends Component {
     }
 }
 
-export default connect(state => ({data: state.data}), {setCurrentFeaturedIndex})(Featured);
+export default connect(state => ({data: state.data, featured: FeaturedSelector(state)}), {setCurrentFeaturedIndex})(Featured);
 
 const styles = StyleSheet.create({
     container: {
