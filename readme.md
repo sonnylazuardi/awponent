@@ -2,6 +2,8 @@
 
 😎 curated list of awesome react native components on exponent
 
+![logo](https://raw.githubusercontent.com/sonnylazuardi/awponent/master/assets/images/logo-big-192.png)
+
 # Demo
 
 ![demogif](http://sonny.js.org/awponent/static/media/demo.e1430503.gif)
