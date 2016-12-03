@@ -36,7 +36,7 @@ class App extends Component {
                   <div className="small2">components on exponent</div>
                 </h1>
                 
-                <a href="#" className="btn btn-default">
+                <a href="https://getexponent.com/@sonnylazuardi/awponent" className="btn btn-default">
                   <img src={exponentlogo} className="exponentlogo-image" /> Open in Exponent
                 </a>
                 <div className="small">coming soon</div>
