@@ -13,14 +13,15 @@ import {
 
 import colors from '../helpers/colors';
 import Featured from './child_screens/featured';
+import Search from './child_screens/search';
 import NewRelease from './child_screens/newrelease';
 import ButtonBar from '../components/button-bar';
 import { connect } from 'react-redux';
 import { loadData } from '../actions/data_action';
 
 class Landing extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             index: 0
         }
@@ -38,11 +39,15 @@ class Landing extends Component {
 
     renderChild() {
         const {index} = this.state;
-
-        if(index == 0) {
-            return <Featured />
+        const {searchActive} = this.props.data;
+        if (searchActive) {
+            return <Search />
         } else {
-            return <NewRelease />
+            if (index == 0) {
+                return <Featured />
+            } else {
+                return <NewRelease />
+            }
         }
     }
 

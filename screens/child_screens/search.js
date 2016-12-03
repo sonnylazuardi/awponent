@@ -20,23 +20,23 @@ const {width, height} = Dimensions.get('window');
 const size = cardSize(height);
 
 
-import {loadData, setCurrentFeaturedIndex} from '../../actions/data_action';
+import {loadData} from '../../actions/data_action';
 import { connect } from 'react-redux';
 
-import FeaturedSelector from '../../selectors/featured';
+import SearchSelector from '../../selectors/search';
 
 const initialLayout = {
     height: 0,
     width: width
 };
 
-class Featured extends Component {
+class Search extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            index: props.data.currentFeaturedIndex,
-            routes: props.featured.map(item => ({ key: item.repo, data: item })),
+            index: 0,
+            routes: props.search.map(item => ({ key: item.repo, data: item })),
             loading: props.loading,
         }
         this._renderScene = this._renderScene.bind(this);
@@ -46,12 +46,9 @@ class Featured extends Component {
 
 
     componentWillReceiveProps(nextProps) {
-        if (this.props.data.currentFeaturedIndex != nextProps.data.currentFeaturedIndex) {
-            this.setState({index: nextProps.data.currentFeaturedIndex});
-        }
-        if (this.props.featured != nextProps.featured) {
+        if (this.props.search != nextProps.search) {
             this.setState({
-                routes: nextProps.featured.map(item => ({ key: item.repo, data: item }))
+                routes: nextProps.search.map(item => ({ key: item.repo, data: item }))
             })
         }
     }
@@ -103,7 +100,9 @@ class Featured extends Component {
     };
 
     _handleChangeTab(index) {
-        this.props.setCurrentFeaturedIndex(index);
+        this.setState({
+            index
+        });
     };
 
     _renderScene(props) {
@@ -146,7 +145,7 @@ class Featured extends Component {
     }
 }
 
-export default connect(state => ({data: state.data, featured: FeaturedSelector(state)}), {setCurrentFeaturedIndex})(Featured);
+export default connect(state => ({data: state.data, search: SearchSelector(state)}))(Search);
 
 const styles = StyleSheet.create({
     container: {

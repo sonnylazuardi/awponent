@@ -9,13 +9,15 @@ import {
     Modal,
     TouchableOpacity,
     StyleSheet,
-
+    TextInput
 } from 'react-native';
 
 import colors from '../helpers/colors';
 import {Ionicons} from '@exponent/vector-icons';
+import {connect} from 'react-redux';
+import {setSearchText, setSearchActive} from '../actions/data_action';
 
-export default class ButtonBar extends Component {
+class ButtonBar extends Component {
     constructor(props) {
         super();
         this.state = {
@@ -50,8 +52,14 @@ export default class ButtonBar extends Component {
     }
 
     openSearch() {
-
-    }
+        var isActive = !this.props.data.searchActive;
+        this.props.setSearchActive(isActive);
+        if (isActive) {
+            setTimeout(() => {
+                this.refs.search.focus();
+            })
+        }
+     }
 
     renderButtons() {
         const {options, fontSize, index} = this.state;
@@ -75,7 +83,22 @@ export default class ButtonBar extends Component {
                     <TouchableOpacity>
                         <Ionicons name='md-options' color={colors.text} size={24} />
                     </TouchableOpacity>
-                    <TouchableOpacity>
+                    {this.props.data.searchActive ?
+                        <TextInput 
+                            ref="search"
+                            style={{
+                                marginHorizontal: 10,
+                                height: 26,
+                                borderWidth: 0.5,
+                                borderColor: '#0f0f0f',
+                                flex: 1,
+                                fontSize: 13,
+                                padding: 4
+                            }} 
+                            value={this.props.data.searchText}
+                            onChangeText={(text) => this.props.setSearchText(text)} />
+                        : null}
+                    <TouchableOpacity onPress={this.openSearch}>
                         <Ionicons name='md-search' color={colors.text} size={24} />
                     </TouchableOpacity>
                 </View>
@@ -86,3 +109,5 @@ export default class ButtonBar extends Component {
         )
     }
 }
+
+export default connect(state => ({data: state.data}), {setSearchText, setSearchActive})(ButtonBar);

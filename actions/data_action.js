@@ -16,6 +16,8 @@ export const UNLIKE = 'UNLIKE';
 export const SET_CURRENT_FEATURED_INDEX = 'SET_CURRENT_FEATURED_INDEX';
 export const SET_CURRENT_LIKED_INDEX = 'SET_CURRENT_LIKED_INDEX';
 export const SET_CURRENT_NEWRELEASE_INDEX = 'SET_CURRENT_NEWRELEASE_INDEX';
+export const SET_SEARCH_TEXT = 'SET_SEARCH_TEXT';
+export const SET_SEARCH_ACTIVE = 'SET_SEARCH_ACTIVE';
 
 
 export function initData(data) {
@@ -129,3 +131,18 @@ export function setCurrentNewReleaseIndex(data) {
         payload: data
     }
 }
+
+export function setSearchText(data) {
+    return {
+        type: SET_SEARCH_TEXT,
+        payload: data
+    }
+}
+
+export function setSearchActive(data) {
+    return {
+        type: SET_SEARCH_ACTIVE,
+        payload: data
+    }
+}
+

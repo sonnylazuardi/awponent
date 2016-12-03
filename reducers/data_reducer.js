@@ -1,7 +1,17 @@
 /**
  * Created by ggoma on 2016. 11. 29..
  */
-import {INIT_DATA, LOADING, SAVE_TO_LIKED, UNLIKE, SET_CURRENT_FEATURED_INDEX, SET_CURRENT_LIKED_INDEX, SET_CURRENT_NEWRELEASE_INDEX} from '../actions/data_action';
+import {
+    INIT_DATA, 
+    LOADING, 
+    SAVE_TO_LIKED, 
+    UNLIKE, 
+    SET_CURRENT_FEATURED_INDEX, 
+    SET_CURRENT_LIKED_INDEX, 
+    SET_CURRENT_NEWRELEASE_INDEX,
+    SET_SEARCH_TEXT,
+    SET_SEARCH_ACTIVE
+} from '../actions/data_action';
 import {unique, without} from '../helpers/helpers';
 import {
     AsyncStorage
@@ -16,6 +26,8 @@ const initial_state = {
     currentFeaturedIndex: 0,
     currentLikedIndex: 0,
     currentNewReleaseIndex: 0,
+    searchText: '',
+    searchActive: false
 }
 
 export default function data_reducer(state = initial_state, action = {}) {
@@ -62,6 +74,17 @@ export default function data_reducer(state = initial_state, action = {}) {
             return {
                 ...state,
                 currentNewReleaseIndex: action.payload
+            }
+        case SET_SEARCH_TEXT:
+            return {
+                ...state,
+                searchText: action.payload
+            }
+        case SET_SEARCH_ACTIVE:
+            console.log('SET_SEARCH_ACTIVE', action.payload);
+            return {
+                ...state,
+                searchActive: action.payload
             }
         default:
             return state
