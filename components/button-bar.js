@@ -24,9 +24,8 @@ export default class ButtonBar extends Component {
             })
         }
 
+        this.openSearch = this.openSearch.bind(this);
         this.animate(0);
-
-
     }
 
     handleChange(index) {
@@ -45,6 +44,10 @@ export default class ButtonBar extends Component {
                 timing(this.state.fontSize[i], {toValue: 24}).start();
             }
         })
+
+    }
+
+    openSearch() {
 
     }
 
