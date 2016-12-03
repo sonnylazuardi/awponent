@@ -61,7 +61,9 @@ class Liked extends Component {
             if (this.state.index > nextProps.liked.length - 1) {
                 var nextIndex = nextProps.liked.length - 1;
                 if (nextIndex >= 0) {
-                    this.props.setCurrentLikedIndex(nextIndex);
+                    setTimeout(() => {
+                        this.props.setCurrentLikedIndex(nextIndex);
+                    });
                 } else {
                     this.setState({index: 0});
                 }
