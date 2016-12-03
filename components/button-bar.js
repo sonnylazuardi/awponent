@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 
 import colors from '../helpers/colors';
+import {Ionicons} from '@exponent/vector-icons';
 
 export default class ButtonBar extends Component {
     constructor(props) {
@@ -68,8 +69,18 @@ export default class ButtonBar extends Component {
 
     render() {
         return (
-            <View style={{height: 100, flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'center'}}>
-                {this.renderButtons()}
+            <View style={{height: 100, padding: 16, paddingTop: 36}}>
+                <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+                    <TouchableOpacity>
+                        <Ionicons name='md-options' color={colors.text} size={24} />
+                    </TouchableOpacity>
+                    <TouchableOpacity>
+                        <Ionicons name='md-search' color={colors.text} size={24} />
+                    </TouchableOpacity>
+                </View>
+                <View style={{flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'center'}}>
+                    {this.renderButtons()}
+                </View>
             </View>
         )
     }
