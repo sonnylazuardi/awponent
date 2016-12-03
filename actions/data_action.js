@@ -7,7 +7,7 @@ AsyncStorage
 
 import {differenceBetween} from '../helpers/helpers';
 
-import data from '../components.json';
+// import data from '../components.json';
 
 export const INIT_DATA = 'INIT_DATA';
 export const LOADING = 'LOADING';
@@ -64,7 +64,6 @@ async function loadUnlike(project) {
     try {
         let value = await AsyncStorage.getItem('liked');
         if (value !== null){
-            console.log(value);
             let liked = JSON.parse(value);
             let difference = differenceBetween(liked, [project]);
             AsyncStorage.setItem('liked', JSON.stringify(difference));
@@ -79,7 +78,7 @@ async function loadUnlike(project) {
     }
 }
 
-async function load() {
+async function loadLiked() {
     try {
         let value = await AsyncStorage.getItem('liked');
         if (value !== null){
@@ -87,16 +86,40 @@ async function load() {
             let liked = JSON.parse(value);
             // let featured = differenceBetween(data, liked);
             return {
-                featured: data,
-                liked,
+                liked
+            };
+        } else {
+            return {
+                liked: []
+            };
+        }
+    } catch (error) {
+        // Error retrieving data
+        console.log(error);
+    }
+}
+
+async function loadFeatured() {
+    try {
+        let response = await fetch(`https://raw.githubusercontent.com/sonnylazuardi/awponent/master/components.json`, {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Cache-Control': 'no-cache'
+            }
+        });
+        let responseJson = await response.json();
+
+        if (responseJson !== null){
+            return {
+                featured: responseJson,
                 loading: false,
             };
         } else {
             return {
-                featured: data,
-                liked: [],
-                loading: false
-
+                featured: [],
+                loading: false,
             };
         }
     } catch (error) {
@@ -109,15 +132,14 @@ export function loadData() {
     return function(dispatch, getState) {
         let state = getState();
         console.log(state);
-        let promise = load().then((d) => {
-
-            dispatch(initData(d));
-            console.log('data reducer', d);
-            return Promise.resolve(d);
+        let promise = loadLiked().then((liked) => {
+            return loadFeatured().then((featured) => {
+                var data = {...liked, ...featured};
+                dispatch(initData(data));
+                return Promise.resolve(data);
+            })
         })
-
         return promise;
-
     }
 }
 

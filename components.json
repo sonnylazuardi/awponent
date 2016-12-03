@@ -5,7 +5,7 @@
         "author": {
             "name": "Sung Park",
             "username": "ggomaeng",
-            "picture": "https://avatars3.githubusercontent.com/u/18402191?v=3&s=460"
+            "picture": "https://avatars3.githubusercontent.com/u/18402191?v=3&s=100"
         },
         "tag": "featured",
         "displayPicture": "https://raw.githubusercontent.com/sonnylazuardi/awesomeponent/master/assets/images/cardmodal.gif",
@@ -18,7 +18,7 @@
         "author": {
             "name": "Sonny Lazuardi",
             "username": "sonnylazuardi",
-            "picture": "https://avatars2.githubusercontent.com/u/856609?v=3&s=460"
+            "picture": "https://avatars2.githubusercontent.com/u/856609?v=3&s=100"
         },
         "tag": "featured",
         "displayPicture": "https://raw.githubusercontent.com/sonnylazuardi/awesomeponent/master/assets/images/card.gif",
@@ -31,7 +31,7 @@
         "author": {
             "name": "Sung Park",
             "username": "ggomaeng",
-            "picture": "https://avatars3.githubusercontent.com/u/18402191?v=3&s=460"
+            "picture": "https://avatars3.githubusercontent.com/u/18402191?v=3&s=100"
         },
         "tag": "featured",
         "displayPicture": "https://raw.githubusercontent.com/sonnylazuardi/awesomeponent/master/assets/images/digital_magazine.gif",
@@ -44,7 +44,7 @@
         "author": {
             "name": "Sung Park",
             "username": "ggomaeng",
-            "picture": "https://avatars3.githubusercontent.com/u/18402191?v=3&s=460"
+            "picture": "https://avatars3.githubusercontent.com/u/18402191?v=3&s=100"
         },
         "displayPicture": "https://raw.githubusercontent.com/sonnylazuardi/awesomeponent/master/assets/images/tetris.gif",
         "description": "A pure javascript tetris game for React Native framework.",
@@ -56,7 +56,7 @@
         "author": {
             "name": "Sung Park",
             "username": "ggomaeng",
-            "picture": "https://avatars3.githubusercontent.com/u/18402191?v=3&s=460"
+            "picture": "https://avatars3.githubusercontent.com/u/18402191?v=3&s=100"
         },
         "displayPicture": "https://raw.githubusercontent.com/sonnylazuardi/awesomeponent/master/assets/images/gmail.gif",
         "description": "A prototype of Gmail UI written in pure javascript for React Native framework.",
@@ -68,7 +68,7 @@
         "author": {
             "name": "Sung Park",
             "username": "ggomaeng",
-            "picture": "https://avatars3.githubusercontent.com/u/18402191?v=3&s=460"
+            "picture": "https://avatars3.githubusercontent.com/u/18402191?v=3&s=100"
         },
         "displayPicture": "https://raw.githubusercontent.com/sonnylazuardi/awesomeponent/master/assets/images/image-card.gif",
         "description": "A pure javascript image card for React Native framework.",
@@ -80,10 +80,22 @@
         "author": {
             "name": "Sung Park",
             "username": "ggomaeng",
-            "picture": "https://avatars3.githubusercontent.com/u/18402191?v=3&s=460"
+            "picture": "https://avatars3.githubusercontent.com/u/18402191?v=3&s=100"
         },
         "displayPicture": "https://raw.githubusercontent.com/sonnylazuardi/awesomeponent/master/assets/images/solitaire.gif",
         "description": "A pure javascript solitaire UI for React Native framework.",
         "exponentUrl": "exp://exp.host/@sungwoopark95/react-native-solitaire"
+    },
+    {
+        "name": "Whats App",
+        "repo": "https://github.com/VctrySam/whatsapp",
+        "author": {
+            "name": "Sam Okoro",
+            "username": "VctrySam",
+            "picture": "https://avatars0.githubusercontent.com/u/13421469?v=3&s=100"
+        },
+        "displayPicture": "https://raw.githubusercontent.com/sonnylazuardi/awesomeponent/master/assets/images/whatsapp.jpg",
+        "description": "WhatsApp in React Native",
+        "exponentUrl": "exp://exp.host/@sonnylazuardi/whatsapp"
     }
 ]
