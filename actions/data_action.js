@@ -15,6 +15,7 @@ export const SAVE_TO_LIKED = 'SAVE_TO_LIKED';
 export const UNLIKE = 'UNLIKE';
 export const SET_CURRENT_FEATURED_INDEX = 'SET_CURRENT_FEATURED_INDEX';
 export const SET_CURRENT_LIKED_INDEX = 'SET_CURRENT_LIKED_INDEX';
+export const SET_CURRENT_NEWRELEASE_INDEX = 'SET_CURRENT_NEWRELEASE_INDEX';
 
 
 export function initData(data) {
@@ -122,6 +123,13 @@ export function setCurrentFeaturedIndex(data) {
 export function setCurrentLikedIndex(data) {
     return {
         type: SET_CURRENT_LIKED_INDEX,
+        payload: data
+    }
+}
+
+export function setCurrentNewReleaseIndex(data) {
+    return {
+        type: SET_CURRENT_NEWRELEASE_INDEX,
         payload: data
     }
 }

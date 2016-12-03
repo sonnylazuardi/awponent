@@ -10,7 +10,8 @@
         "tag": "featured",
         "displayPicture": "https://rawgit.com/sonnylazuardi/awponent/master/assets/images/cardmodal.gif",
         "description": "A pure javascript card modal for React Native framework.",
-        "exponentUrl": "exp://exp.host/@sungwoopark95/react-native-card-modal"
+        "exponentUrl": "exp://exp.host/@sungwoopark95/react-native-card-modal",
+        "timestamp": "1479898662394"
     },
     {
         "name": "Credit Card",
@@ -23,7 +24,8 @@
         "tag": "featured",
         "displayPicture": "https://rawgit.com/sonnylazuardi/awponent/master/assets/images/card.gif",
         "description": "💳 React native credit card display component",
-        "exponentUrl": "exp://exp.host/@sonnylazuardi/react-native-credit-card-demos"
+        "exponentUrl": "exp://exp.host/@sonnylazuardi/react-native-credit-card-demos",
+        "timestamp": "1475492645793"
     },
     {
         "name": "Magazine ListView",
@@ -36,7 +38,8 @@
         "tag": "featured",
         "displayPicture": "https://rawgit.com/sonnylazuardi/awponent/master/assets/images/digital_magazine.gif",
         "description": "A pure javascript magazine listview for React Native framework.",
-        "exponentUrl": "exp://exp.host/@sungwoopark95/react-native-digital-magazine"
+        "exponentUrl": "exp://exp.host/@sungwoopark95/react-native-digital-magazine",
+        "timestamp": "1480158182770"
     },
     {
         "name": "Tetris",
@@ -48,7 +51,8 @@
         },
         "displayPicture": "https://rawgit.com/sonnylazuardi/awponent/master/assets/images/tetris.gif",
         "description": "A pure javascript tetris game for React Native framework.",
-        "exponentUrl": "exp://exp.host/@sungwoopark95/react-native-tetris"
+        "exponentUrl": "exp://exp.host/@sungwoopark95/react-native-tetris",
+        "timestamp": "1480071883324"
     },
     {
         "name": "Gmail",
@@ -60,7 +64,8 @@
         },
         "displayPicture": "https://rawgit.com/sonnylazuardi/awponent/master/assets/images/gmail.gif",
         "description": "A prototype of Gmail UI written in pure javascript for React Native framework.",
-        "exponentUrl": "exp://exp.host/@sungwoopark95/react-native-gmail"
+        "exponentUrl": "exp://exp.host/@sungwoopark95/react-native-gmail",
+        "timestamp": "1480244714866"
     },
     {
         "name": "Image Card",
@@ -72,7 +77,8 @@
         },
         "displayPicture": "https://rawgit.com/sonnylazuardi/awponent/master/assets/images/image-card.gif",
         "description": "A pure javascript image card for React Native framework.",
-        "exponentUrl": "exp://exp.host/@sungwoopark95/react-native-image-card"
+        "exponentUrl": "exp://exp.host/@sungwoopark95/react-native-image-card",
+        "timestamp": "1480072028714"
     },
     {
         "name": "Solitaire",
@@ -84,7 +90,8 @@
         },
         "displayPicture": "https://rawgit.com/sonnylazuardi/awponent/master/assets/images/solitaire.gif",
         "description": "A pure javascript solitaire UI for React Native framework.",
-        "exponentUrl": "exp://exp.host/@sungwoopark95/react-native-solitaire"
+        "exponentUrl": "exp://exp.host/@sungwoopark95/react-native-solitaire",
+        "timestamp": "1480331256765"
     },
     {
         "name": "Whats App",
@@ -94,9 +101,11 @@
             "username": "VctrySam",
             "picture": "https://avatars0.githubusercontent.com/u/13421469?v=3&s=100"
         },
+        "tag": "featured",
         "displayPicture": "https://rawgit.com/sonnylazuardi/awponent/master/assets/images/whatsapp.jpg",
         "description": "WhatsApp in React Native",
-        "exponentUrl": "exp://exp.host/@sonnylazuardi/whatsapp"
+        "exponentUrl":  null,
+        "timestamp": "1472900875059"
     },
     {
         "name": "Tinder",
@@ -108,6 +117,7 @@
         },
         "displayPicture": "https://rawgit.com/sonnylazuardi/awponent/master/assets/images/tinder.jpg",
         "description": "Tinder in React Native",
-        "exponentUrl": "exp://exp.host/@sonnylazuardi/tinder"
+        "exponentUrl": null,
+        "timestamp": "1471885200000"
     }
 ]

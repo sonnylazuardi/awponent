@@ -1,7 +1,7 @@
 /**
  * Created by ggoma on 2016. 11. 29..
  */
-import {INIT_DATA, LOADING, SAVE_TO_LIKED, UNLIKE, SET_CURRENT_FEATURED_INDEX, SET_CURRENT_LIKED_INDEX} from '../actions/data_action';
+import {INIT_DATA, LOADING, SAVE_TO_LIKED, UNLIKE, SET_CURRENT_FEATURED_INDEX, SET_CURRENT_LIKED_INDEX, SET_CURRENT_NEWRELEASE_INDEX} from '../actions/data_action';
 import {featuredWithLiked, uniqueLiked} from '../helpers/helpers';
 import {
     AsyncStorage
@@ -15,6 +15,7 @@ const initial_state = {
     loading: true,
     currentFeaturedIndex: 0,
     currentLikedIndex: 0,
+    currentNewReleaseIndex: 0,
 }
 
 export default function data_reducer(state = initial_state, action = {}) {
@@ -59,6 +60,11 @@ export default function data_reducer(state = initial_state, action = {}) {
             return {
                 ...state,
                 currentLikedIndex: action.payload
+            }
+        case SET_CURRENT_NEWRELEASE_INDEX:
+            return {
+                ...state,
+                currentNewReleaseIndex: action.payload
             }
         default:
             return state

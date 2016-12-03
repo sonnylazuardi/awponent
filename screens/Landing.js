@@ -13,6 +13,7 @@ import {
 
 import colors from '../helpers/colors';
 import Featured from './child_screens/featured';
+import NewRelease from './child_screens/newrelease';
 import ButtonBar from '../components/button-bar';
 import { connect } from 'react-redux';
 import { loadData } from '../actions/data_action';
@@ -51,11 +52,23 @@ class Landing extends Component {
         }
 
         if(index == 0) {
-            return <Featured routes={routes} liked={liked}/>
+            var data = routes.sort((a, b) => {
+                if (a.data.tag == 'featured' && b.data.tag != 'featured') {
+                    return -1;
+                } else if (a.data.tag != 'featured' && b.data.tag == 'featured') {
+                    return 1;
+                }  else {
+                    return 0;
+                }
+            });
+            console.log('DATA FEATURED', data);
+            return <Featured routes={data} liked={liked}/>
         } else {
-            return <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-                <Text style={{fontSize: 24, color: colors.text, fontWeight: '300'}}>No new projects yet!</Text>
-            </View>
+            var data = routes.sort((a, b) => {
+                return parseInt(a.data.timestamp) - parseInt(b.data.timestamp);
+            });
+            console.log('DATA NEW', data);
+            return <NewRelease routes={data} liked={liked}/>
         }
     }
 
