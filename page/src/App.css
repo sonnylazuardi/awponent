@@ -1,0 +1,153 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #1c5ca1;
+  height: 400px;
+  padding: 20px;
+  color: white;
+}
+
+.header-content {
+  padding-top: 20px;  
+}
+
+.logo-wrapper {
+  width: 200px;
+  height: 70px;
+}
+
+.phone-wrapper {
+  width: 220px;
+  height: 450px;
+  margin: 0 auto;
+}
+
+.exponentlogo-image {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.logo-image, .phone-image, .downloadbutton {
+  width: 100%;
+}
+
+.downloadbutton {
+  opacity: 0.3;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: -2px;
+  line-height: 1.1em;
+}
+
+h1 .small1 {
+  font-size: .72em;
+  line-height: 1.1em;
+}
+
+h1 .small2 {
+  font-size: .64em;
+  line-height: 1.1em;
+}
+
+h1 i {
+  margin-right: 10px;
+}
+
+.btn-default {
+  padding: 0.8em 2em;
+  text-transform: uppercase;
+  font-weight: 900
+}
+
+.small {
+  margin: 10px;
+  text-transform: uppercase;
+  font-weight: 900
+}
+
+.download-wrapper {
+  padding: 0 20px;
+}
+
+.content {
+  clear: both;
+  padding: 50px 0;
+}
+
+.content h1 {
+  color: #1c5ca1;
+}
+
+.content p {
+  padding: 0 30px;
+}
+
+.media-wrapper {
+  font-size: 4em;
+}
+
+.media-wrapper i {
+  margin: 0 10px;
+  color: #999;
+}
+
+.content-inverse {
+  clear: both;
+  padding: 50px 0;
+  background-color: #1c5ca1;
+}
+
+.content-inverse h1 {
+  color: #fff;
+}
+
+.avatar {
+  color: #fff;
+}
+
+.avatar img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50px;
+}
+
+.avatar a {
+  color: #fff;
+}
+
+@media (min-width:992px)
+{
+  .container{width:800px}
+}
+@media (min-width:1200px)
+{
+  .container{width:800px}
+}
+@media (max-width:690px)
+{
+  .logo-wrapper {
+    margin: 0 auto;
+  }
+  .App-header h1 {
+    color: #1c5ca1;
+    font-size: 2.2em;
+  }
+  .App-header .small {
+    color: #1c5ca1;
+  }
+}
