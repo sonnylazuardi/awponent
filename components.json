@@ -7,6 +7,7 @@
             "username": "ggomaeng",
             "picture": "https://avatars3.githubusercontent.com/u/18402191?v=3&s=460"
         },
+        "tag": "featured",
         "displayPicture": "https://raw.githubusercontent.com/sonnylazuardi/awesomeponent/master/assets/images/cardmodal.gif",
         "description": "A pure javascript card modal for React Native framework.",
         "exponentUrl": "exp://exp.host/@sungwoopark95/react-native-card-modal"
@@ -19,6 +20,7 @@
             "username": "sonnylazuardi",
             "picture": "https://avatars2.githubusercontent.com/u/856609?v=3&s=460"
         },
+        "tag": "featured",
         "displayPicture": "https://raw.githubusercontent.com/sonnylazuardi/awesomeponent/master/assets/images/card.gif",
         "description": "💳 React native credit card display component",
         "exponentUrl": "exp://exp.host/@sonnylazuardi/react-native-credit-card-demos"
@@ -31,6 +33,7 @@
             "username": "ggomaeng",
             "picture": "https://avatars3.githubusercontent.com/u/18402191?v=3&s=460"
         },
+        "tag": "featured",
         "displayPicture": "https://raw.githubusercontent.com/sonnylazuardi/awesomeponent/master/assets/images/digital_magazine.gif",
         "description": "A pure javascript magazine listview for React Native framework.",
         "exponentUrl": "exp://exp.host/@sungwoopark95/react-native-digital-magazine"
