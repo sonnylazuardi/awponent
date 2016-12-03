@@ -1,18 +1,18 @@
 {
-  "name": "awesomeponent",
-  "description": "No description",
-  "slug": "awesomeponent",
+  "name": "awponent",
+  "description": "Curated list of awesome react native components on exponent",
+  "slug": "awponent",
   "sdkVersion": "11.0.0",
   "version": "1.0.0",
   "orientation": "portrait",
   "primaryColor": "#cccccc",
-  "iconUrl": "https://raw.githubusercontent.com/sonnylazuardi/awesomeponent/master/assets/images/logo-big-192.png",
+  "iconUrl": "https://raw.githubusercontent.com/sonnylazuardi/awponent/master/assets/images/logo-big-192.png",
   "notification": {
-    "iconUrl": "https://raw.githubusercontent.com/sonnylazuardi/awesomeponent/master/assets/images/logo-big-192.png",
+    "iconUrl": "https://raw.githubusercontent.com/sonnylazuardi/awponent/master/assets/images/logo-big-192.png",
     "color": "#000000"
   },
   "loading": {
-    "iconUrl": "https://raw.githubusercontent.com/sonnylazuardi/awesomeponent/master/assets/images/logo-big-192.png",
+    "iconUrl": "https://raw.githubusercontent.com/sonnylazuardi/awponent/master/assets/images/logo-big-192.png",
     "hideExponentText": false
   },
   "packagerOpts": {
