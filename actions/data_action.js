@@ -5,7 +5,7 @@ import {
 AsyncStorage
 } from 'react-native';
 
-import {differenceBetween} from '../helpers/helpers';
+import {differenceBetween, featuredWithLiked} from '../helpers/helpers';
 
 // import data from '../components.json';
 
@@ -82,9 +82,7 @@ async function loadLiked() {
     try {
         let value = await AsyncStorage.getItem('liked');
         if (value !== null){
-            //retrieve data
             let liked = JSON.parse(value);
-            // let featured = differenceBetween(data, liked);
             return {
                 liked
             };
@@ -94,7 +92,6 @@ async function loadLiked() {
             };
         }
     } catch (error) {
-        // Error retrieving data
         console.log(error);
     }
 }
@@ -110,18 +107,11 @@ async function loadFeatured() {
             }
         });
         let responseJson = await response.json();
-
-        if (responseJson !== null){
-            return {
-                featured: responseJson,
-                loading: false,
-            };
-        } else {
-            return {
-                featured: [],
-                loading: false,
-            };
-        }
+        var featured = responseJson
+        return {
+            featured,
+            loading: false,
+        };
     } catch (error) {
         // Error retrieving data
         console.log(error);
@@ -133,7 +123,8 @@ export function loadData() {
         let state = getState();
         console.log(state);
         let promise = loadLiked().then((liked) => {
-            return loadFeatured().then((featured) => {
+            return loadFeatured(liked.liked).then((featured) => {
+                //preprocess the featured data with the liked data use repo as the key
                 var data = {...liked, ...featured};
                 dispatch(initData(data));
                 return Promise.resolve(data);
@@ -147,14 +138,9 @@ export function like(project) {
     return function(dispatch, getState) {
         let state = getState();
         console.log(state);
-        let promise = save(project).then((d) => {
-            dispatch(saveToLiked(d));
-            console.log('data saved', d);
-            return Promise.resolve(d);
-        })
-
-        return promise;
-
+        
+        dispatch(saveToLiked(project));
+        return Promise.resolve();
     }
 }
 
@@ -162,14 +148,9 @@ export function unlike(project) {
     return function(dispatch, getState) {
         let state = getState();
         console.log(state);
-        let promise = loadUnlike(project).then((d) => {
-            dispatch(doUnlike(d));
-            console.log('project unliked', d);
-            return Promise.resolve(d);
-        })
-
-        return promise;
-
+        
+        dispatch(doUnlike(project));
+        return Promise.resolve();
     }
 }
 

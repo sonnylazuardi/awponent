@@ -26,25 +26,17 @@ class Landing extends Component {
             loading: true
         }
 
+        console.log(this.state.routes);
+
         this.changeIndex = this.changeIndex.bind(this)
     }
 
     componentDidMount() {
-
-        this.props.loadData()
-            .then((data) => {
-                // console.log('promise', data);
-                this.setState({
-                    routes: data.featured.map(item => ({key: item.repo, data: item})),
-                    liked: data.liked
-                })
-            });
-
+        this.props.loadData();
     }
 
     componentWillReceiveProps(nextProps) {
         if (this.props.data != nextProps.data) {
-            console.log('new props:', nextProps.data);
             this.setState({
                 routes: nextProps.data.featured.map(item => ({ key: item.repo, data: item })),
                 liked: nextProps.data.liked

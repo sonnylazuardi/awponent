@@ -27,26 +27,13 @@ class Card extends Component {
     constructor(props) {
         super(props);
         this.state= {
-            liked: props.liked,
-            deleted: false,
             opacity: new Animated.Value(1),
-            XY: new Animated.ValueXY(0),
             loading: true,
         }
 
         this.liked = this.liked.bind(this);
-        this.animate = this.animate.bind(this);
         this.openExponent = this.openExponent.bind(this);
         this.openGitHub = this.openGitHub.bind(this);
-        this.deleted = this.deleted.bind(this);
-    }
-
-    componentWillReceiveProps(nextProps) {
-        if(this.props.liked != nextProps.liked) {
-            console.log('card should be updated');
-            this.setState({liked: nextProps.liked});
-        }
-
     }
 
     renderAvatar(author) {
@@ -61,8 +48,8 @@ class Card extends Component {
     }
 
     renderHearts() {
-        //<Text style={{color: 'gray', paddingLeft: 10}}>253</Text>
-        const {liked} = this.state;
+        const {liked} = this.props.info;
+        console.log('LIKED? ', this.props.info.name, liked);
         return (
             <TouchableOpacity onPress={this.liked} style={{flexDirection: 'row', alignItems: 'center' }}>
                 <Ionicons name={liked ? 'md-heart' : 'md-heart-outline'} color={liked ? 'red' : 'gray'} size={24}/>
@@ -71,54 +58,16 @@ class Card extends Component {
     }
 
     liked() {
-        // this.animate();
-        const {liked} = this.state;
+        const {liked} = this.props.info;
         if(!liked) {
             console.log('liking', this.props.info);
             this.props.like(this.props.info);
-            this.setState({liked: true});
             return
         }
         
         //delete from liked
         console.log('unliking');
-        this.setState({liked: false});
         this.props.unlike(this.props.info);
-
-
-    }
-    
-    deleted(object) {
-        // console.log('deleting:', this.props.data)
-        // this.props.deleted(object);
-    }
-
-    animate() {
-        const {liked} = this.state;
-        const offset = liked ? -width/1.5 : width/1.5
-
-        Animated.sequence([
-            Animated.timing(
-                this.state.opacity,
-                {
-                    toValue: 0,
-                    duration: 600
-                }
-            ).start(() => {
-                this.deleted(this.props.data);
-            }),
-            Animated.timing(
-                this.state.XY,
-                {
-                    toValue: {x: offset, y: height},
-                    duration: 1500
-                }
-            ).start(),
-
-        ])
-
-
-
     }
 
     openGitHub() {
@@ -172,9 +121,8 @@ class Card extends Component {
     render() {
         
         const {name, author, displayPicture, description} = this.props.info;
-        const {opacity, XY, } = this.state;
         return (
-            <Animated.View style={{opacity, position: 'absolute', transform:[{translateX: XY.x}, {translateY: XY.y}]}}>
+            <View>
                 <View style={{flex: 1, width: size.width, height: size.height, borderWidth: 1}}>
                     {this.loadImage(name, displayPicture, description)}
                 </View>
@@ -183,7 +131,7 @@ class Card extends Component {
                     {this.renderAvatar(author)}
                     {this.renderHearts()}
                 </View>
-            </Animated.View>
+            </View>
         )
         
     }

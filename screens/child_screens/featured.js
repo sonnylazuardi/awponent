@@ -112,8 +112,7 @@ class Featured extends Component {
             <Animated.View style={[ styles.page, this._buildCoverFlowStyle(props) ]}>
                 <View style={styles.album}>
                     <Card key={props.route.key}
-                          liked={includes(this.state.liked, props.route.data)}
-                          deleted={this.deleted} info={props.route.data}/>
+                        info={props.route.data}/>
                 </View>
             </Animated.View>
         );
@@ -126,17 +125,6 @@ class Featured extends Component {
     render() {
 
         const {loading, routes} = this.state;
-        // if(loading) {
-        //     return <View style={[styles.container, {justifyContent: 'center', alignItems: 'center'}]}>
-        //         <Text style={{fontSize: 24, color: colors.text, fontWeight: '300'}}>Loading...</Text>
-        //     </View>
-        // }
-        //
-        // if(routes.length == 0) {
-        //     return <View style={[styles.container, {justifyContent: 'center', alignItems: 'center'}]}>
-        //         <Text style={{fontSize: 24, color: colors.text, fontWeight: '300'}}>No projects to display</Text>
-        //     </View>
-        // }
         return (
             <View style={styles.container}>
                 <TabViewAnimated

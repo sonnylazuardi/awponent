@@ -2,6 +2,7 @@
  * Created by ggoma on 2016. 11. 29..
  */
 import {INIT_DATA, LOADING, SAVE_TO_LIKED, UNLIKE, SET_CURRENT_FEATURED_INDEX} from '../actions/data_action';
+import {featuredWithLiked, uniqueLiked} from '../helpers/helpers';
 
 const initial_state = {
     featured: [],
@@ -15,9 +16,13 @@ const initial_state = {
 export default function data_reducer(state = initial_state, action = {}) {
     switch (action.type) {
         case INIT_DATA:
+            var {liked, featured} = action.payload;
+            liked = liked.map(item => ({...item, liked: true}));
             return {
                 ...state,
-                ...action.payload
+                ...action.payload,
+                liked,
+                featured: featuredWithLiked(featured, liked)
             }
         case LOADING:
             return {
@@ -25,14 +30,20 @@ export default function data_reducer(state = initial_state, action = {}) {
                 loading: action.payload
             }
         case SAVE_TO_LIKED:
+            var liked = uniqueLiked([...state.liked, {...action.payload, liked: true}]);
             return {
                 ...state,
-                liked: action.payload
+                liked,
+                featured: featuredWithLiked(state.featured, liked)
             }
         case UNLIKE:
+            console.log('PAYLOAD', action.payload);
+            var liked = state.liked.filter(item => item.repo !== action.payload.repo);
+            console.log('CURRENT LIKED', liked);
             return {
                 ...state,
-                ...action.payload
+                liked, 
+                featured: featuredWithLiked(state.featured, liked)
             }
         case SET_CURRENT_FEATURED_INDEX:
             return {

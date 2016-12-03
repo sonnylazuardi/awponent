@@ -49,7 +49,9 @@ class Liked extends Component {
     componentWillReceiveProps(nextProps) {
         if (this.props.data != nextProps.data) {
             console.log('props for liked received!', nextProps);
-            if(nextProps.data.liked.length == 1) {
+             if (this.state.index > nextProps.data.liked.length - 1) {
+                this.setState({index: nextProps.data.liked.length - 1})
+            } else if (nextProps.data.liked.length == 1) {
                 this.setState({index: 0})
             }
             this.setState({
@@ -117,7 +119,7 @@ class Liked extends Component {
         return (
             <Animated.View style={[ styles.page, this._buildCoverFlowStyle(props) ]}>
                 <View style={styles.album}>
-                    <Card key={props.route.key} deleted={this.deleted} info={props.route.data} liked={true}/>
+                    <Card key={props.route.key} info={props.route.data}/>
                 </View>
             </Animated.View>
         );

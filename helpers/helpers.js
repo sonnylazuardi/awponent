@@ -34,6 +34,17 @@ function cloneObject(obj) {
     return temp;
 }
 
+export function featuredWithLiked(featured, liked) {
+    return featured.map(featuredItem => {
+        var likedFound = liked.filter(likedItem => likedItem.repo === featuredItem.repo).length > 0;
+        if (likedFound) {
+            return {...featuredItem, liked: true}
+        } else {
+            return {...featuredItem, liked: false}
+        }
+    });
+}
+
 export function includes(array, object) {
     var found = false;
     for(var i = 0; i < array.length; i++) {
@@ -43,4 +54,10 @@ export function includes(array, object) {
         }
     }
     return found;
+}
+
+export function uniqueLiked(liked) {
+    return liked.filter((item, index, items) => 
+        items.map(component => component.repo)
+            .indexOf(item.repo) === index);
 }
