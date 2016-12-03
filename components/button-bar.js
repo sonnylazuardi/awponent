@@ -6,6 +6,7 @@ import {
     Animated,
     View,
     Text,
+    Modal,
     TouchableOpacity,
     StyleSheet,
 
