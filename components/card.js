@@ -49,7 +49,6 @@ class Card extends Component {
 
     renderHearts() {
         const {liked} = this.props.info;
-        console.log('LIKED? ', this.props.info.name, liked);
         return (
             <TouchableOpacity onPress={this.liked} style={{flexDirection: 'row', alignItems: 'center' }}>
                 <Ionicons name={liked ? 'md-heart' : 'md-heart-outline'} color={liked ? 'red' : 'gray'} size={24}/>

@@ -37,9 +37,7 @@ export default function data_reducer(state = initial_state, action = {}) {
                 featured: featuredWithLiked(state.featured, liked)
             }
         case UNLIKE:
-            console.log('PAYLOAD', action.payload);
             var liked = state.liked.filter(item => item.repo !== action.payload.repo);
-            console.log('CURRENT LIKED', liked);
             return {
                 ...state,
                 liked, 
