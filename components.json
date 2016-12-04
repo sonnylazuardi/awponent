@@ -1,5 +1,19 @@
 [
     {
+        "name": "FC Barca",
+        "repo": "https://github.com/VctrySam/FCBarca",
+        "author": {
+            "name": "Sam Okoro",
+            "username": "VctrySam",
+            "picture": "https://avatars0.githubusercontent.com/u/13421469?v=3&s=100"
+        },
+        "tag": "featured",
+        "displayPicture": "https://rawgit.com/sonnylazuardi/awponent/master/assets/images/fcbarca.jpg",
+        "description": "FC Barcelona in React Native",
+        "exponentUrl": "exp://exp.host/@@community/fc-barca",
+        "timestamp": "1474477200000"
+    },
+    {
         "name": "Card Modal",
         "repo": "https://github.com/ggomaeng/react-native-card-modal",
         "author": {
