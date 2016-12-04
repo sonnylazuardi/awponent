@@ -133,5 +133,18 @@
         "description": "Tinder in React Native",
         "exponentUrl": null,
         "timestamp": "1471885200000"
-    }
+    },
+    {
+        "name": "Login Animated App",
+        "repo": "https://github.com/thanhtungdp/react-native-login-animated",
+        "author": {
+            "name": "Tung Phan",
+            "username": "thanhtungdp",
+            "picture": "https://avatars2.githubusercontent.com/u/4653102?v=3&s=460"
+        },
+        "displayPicture": "https://cloud.githubusercontent.com/assets/4653102/20638502/83c8713e-b3db-11e6-9814-0c062ffbc675.gif",
+        "description": "This app use Animated for animation transition from other Scence, it's easy and build fast",
+        "exponentUrl": null,
+        "timestamp": "1471885200000"
+    },
 ]
