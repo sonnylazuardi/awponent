@@ -10,7 +10,7 @@
         "tag": "featured",
         "displayPicture": "https://rawgit.com/sonnylazuardi/awponent/master/assets/images/fcbarca.jpg",
         "description": "FC Barcelona in React Native",
-        "exponentUrl": "exp://exp.host/@@community/fc-barca",
+        "exponentUrl": "exp://exp.host/@community/fc-barca",
         "timestamp": "1474477200000"
     },
     {

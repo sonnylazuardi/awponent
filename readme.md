@@ -26,7 +26,7 @@ Image Card | http://exp.host/@sungwoopark95/react-native-image-card | https://gi
 Solitaire | http://exp.host/@sungwoopark95/react-native-solitaire | https://github.com/ggomaeng/react-native-solitaire | ![](https://rawgit.com/sonnylazuardi/awponent/master/assets/images/solitaire.gif)
 Whats App | - |https://github.com/VctrySam/whatsapp | ![](https://rawgit.com/sonnylazuardi/awponent/master/assets/images/whatsapp.jpg)
 Tinder | - | https://github.com/VctrySam/tinder | ![](https://rawgit.com/sonnylazuardi/awponent/master/assets/images/tinder.jpg)
-FC Barca | http://exp.host/@@community/fc-barca | https://github.com/VctrySam/FCBarca | ![](https://rawgit.com/sonnylazuardi/awponent/master/assets/images/fcbarca.jpg)
+FC Barca | http://exp.host/@community/fc-barca | https://github.com/VctrySam/FCBarca | ![](https://rawgit.com/sonnylazuardi/awponent/master/assets/images/fcbarca.jpg)
 
 # Contributing
 
