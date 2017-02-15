@@ -27,7 +27,7 @@ Solitaire | http://exp.host/@sungwoopark95/react-native-solitaire | https://gith
 Whats App | - |https://github.com/VctrySam/whatsapp | ![](https://rawgit.com/sonnylazuardi/awponent/master/assets/images/whatsapp.jpg)
 Tinder | - | https://github.com/VctrySam/tinder | ![](https://rawgit.com/sonnylazuardi/awponent/master/assets/images/tinder.jpg)
 FC Barca | http://exp.host/@community/fc-barca | https://github.com/VctrySam/FCBarca | ![](https://rawgit.com/sonnylazuardi/awponent/master/assets/images/fcbarca.jpg)
-
+Login Animated | http://exp.host/@thanhtungdp/login-animated-app | https://github.com/thanhtungdp/react-native-login-animated | ![](https://cloud.githubusercontent.com/assets/4653102/20638502/83c8713e-b3db-11e6-9814-0c062ffbc675.gif)
 # Contributing
 
 If you have React Native component, please help us adding the list. You can open PR and edit the `components.json` file.
