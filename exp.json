@@ -17,5 +17,11 @@
   },
   "packagerOpts": {
     "assetExts": ["ttf"]
+  },
+  "ios": {
+    "bundleIdentifier": "org.js.sonny.awponent"
+  },
+  "android": {
+    "package": "org.js.sonny.awponent"
   }
 }
