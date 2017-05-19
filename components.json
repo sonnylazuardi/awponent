@@ -146,5 +146,18 @@
         "description": "This app use Animated for animation transition from other Scence, it's easy and build fast",
         "exponentUrl": null,
         "timestamp": "1471885200000"
+    },
+     {
+        "name": "Music Player",
+        "repo": "https://github.com/gedeagas/react-native-musicplayer-ui",
+        "author": {
+            "name": "Agastya Darma",
+            "username": "gedeagas",
+            "picture": "https://avatars1.githubusercontent.com/u/8868908?v=3&s=460"
+        },
+        "displayPicture": "https://media.giphy.com/media/3oKIPuKvKIGsCK9eJa/giphy.gif",
+        "description": "🎧 Pure javascript music player user interface prototype for React Native framework.",
+        "exponentUrl": null,
+        "timestamp": "1495207366"
     }
 ]
