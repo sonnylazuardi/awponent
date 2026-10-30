@@ -159,5 +159,18 @@
         "description": "🎧 Pure javascript music player user interface prototype for React Native framework.",
         "exponentUrl": null,
         "timestamp": "1495207366"
+    },
+    {
+        "name": "OTF UI Native",
+        "repo": "https://github.com/otf-kit/sdk",
+        "author": {
+            "name": "OTF UI",
+            "username": "otf-kit",
+            "picture": "https://avatars.githubusercontent.com/u/281911222?v=4"
+        },
+        "displayPicture": "https://cdn.otf-kit.dev/readme/sdk-2610/gallery-date-picker.jpg",
+        "description": "Free MIT-licensed React Native components with names and design tokens shared with the web package.",
+        "exponentUrl": "https://otf-kit.dev/components?utm_source=directory&utm_medium=organic&utm_campaign=first-sale-14d-20261016&utm_content=2026-10-30-listing-awponent-otf-ui-native",
+        "timestamp": "1793325803986"
     }
 ]
