@@ -15,7 +15,7 @@ for the featured or new components. We can also like a component so that we can 
 
 # Components
 
-Name | Exponent URL | Github URL | Demo
+Name | Demo / Expo URL | Github URL | Demo
 --- | --- | --- | ---
 Card Modal | http://exp.host/@sungwoopark95/react-native-card-modal | https://github.com/ggomaeng/react-native-card-modal | ![](https://rawgit.com/sonnylazuardi/awponent/master/assets/images/cardmodal.gif)
 Credit Card | http://exp.host/@sonnylazuardi/react-native-credit-card-demos | https://github.com/sonnylazuardi/react-native-credit-card | ![](https://rawgit.com/sonnylazuardi/awponent/master/assets/images/card.gif)
@@ -29,6 +29,7 @@ Tinder | - | https://github.com/VctrySam/tinder | ![](https://rawgit.com/sonnyla
 FC Barca | http://exp.host/@community/fc-barca | https://github.com/VctrySam/FCBarca | ![](https://rawgit.com/sonnylazuardi/awponent/master/assets/images/fcbarca.jpg)
 Login Animated | http://exp.host/@thanhtungdp/login-animated-app | https://github.com/thanhtungdp/react-native-login-animated | ![](https://cloud.githubusercontent.com/assets/4653102/20638502/83c8713e-b3db-11e6-9814-0c062ffbc675.gif)
 Music Player | - | https://github.com/gedeagas/react-native-musicplayer-ui | ![](https://media.giphy.com/media/3oKIPuKvKIGsCK9eJa/giphy.gif)
+OTF UI Native | [Component gallery](https://otf-kit.dev/components?utm_source=directory&utm_medium=organic&utm_campaign=first-sale-14d-20261016&utm_content=2026-10-30-listing-awponent-otf-ui-native) | https://github.com/otf-kit/sdk | ![](https://cdn.otf-kit.dev/readme/sdk-2610/gallery-date-picker.jpg)
 # Contributing
 
 If you have React Native component, please help us adding the list. You can open PR and edit the `components.json` file.
